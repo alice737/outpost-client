@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+}
+body{
+    background-color: #d0d6e2;
+
+}
+.container {
+     padding-top: 50px;
+  
+}
+.jumbotron {
+   color: white;
+    background-image: url(https://www.orderwise.co.uk/wp-content/uploads/2017/05/Courier-Integration.png);
+    margin-bottom: 0px;
+    height: 362px;
+  }
+.display-4{
+    visibility: hidden;
+  }
+.lead{
+    color: #4B515D;
+    font-weight: 700;
+    text-shadow: 2px 2px 1px black;
+  }
+.form-signin {
+    max-width: 530px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+
+    border: 1px solid rgba(0,0,0,0.1);  
+ }
+.page-footer{
+   
+    color: white;
+}
+
+  
