@@ -5,24 +5,18 @@ body{
     background-color: #d0d6e2;
 
 }
-.container {
-     padding-top: 50px;
+#container100 {
+     padding-top: 100px;
   
 }
 .jumbotron {
-   color: white;
-    background-image: url(https://www.orderwise.co.uk/wp-content/uploads/2017/05/Courier-Integration.png);
-    margin-bottom: 0px;
-    height: 362px;
-  }
-.display-4{
-    visibility: hidden;
-  }
-.lead{
-    color: #4B515D;
-    font-weight: 700;
-    text-shadow: 2px 2px 1px black;
-  }
+  background-image: url("http://econo-courier.com/wp-content/uploads/2016/11/mail-delivery-1200x675.jpeg");
+  background-size: cover;
+  height: 512px;
+
+}
+
+
 .form-signin {
     max-width: 530px;
     padding: 15px 35px 45px;

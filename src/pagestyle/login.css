@@ -9,12 +9,7 @@ body{
      padding-top: 50px;
   
 }
-.jumbotron {
-   color: white;
-    background-image: url(https://www.orderwise.co.uk/wp-content/uploads/2017/05/Courier-Integration.png);
-    margin-bottom: 0px;
-    height: 362px;
-  }
+
 .display-4{
     visibility: hidden;
   }
