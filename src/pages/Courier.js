@@ -5,15 +5,18 @@ import axios from 'axios';
 
 
 class Courier extends Component{
-    state = {
-        couriers: []
-      };
+  constructor(props) {
+    super(props);
+    this.state = {
+      couriers: []
+    };
+  }
     
     componentDidMount(){
     axios.get('http://localhost:8080/employee/carriers')
     .then(response => {
       this.setState({
-couriers: response.data["0"].personalia
+couriers: response.data
       });
      
       console.log(response);
@@ -32,22 +35,34 @@ couriers: response.data["0"].personalia
             <table className="table table-striped table-sm">
               <thead>
                 <tr>
-               
+            
                   <th>Imie</th>
                   <th>Nazwisko</th>
-                  {/* <th>Adres</th> */}
                   <th>Telefon</th>
+                  <th>Ulica</th>
+                  <th>Numer ulicy</th>
+                  <th>Numer domu</th>
+                  <th>Miasto</th>
+                  <th>Kod pocztowy</th>
+                  
                 </tr>
               </thead>
-              <tbody>
-              <tr>
+              <tbody> 
+              {this.state.couriers.map((item, index) => (
+          <tr key={index}>
+        <td> {item.personalia.name}</td>
+         <td> {item.personalia.surname}</td>
+         <td> {item.personalia.telNumber}</td> 
+         <td> {item.personalia.address.street}</td>
+         <td> {item.personalia.address.street_number}</td> 
+         <td> {item.personalia.address.house_number}</td> 
+         <td> {item.personalia.address.city}</td> 
+ <td> {item.personalia.address.postal_code}</td>         
+
+         </tr>
+               ) )} 
                
-                  <td> {couriers.name}</td>
-                  <td> {couriers.surname}</td>
-                  {/* <td> {couriers.address.city}</td> */}
-                  <td> {couriers.telNumber}</td>
-                </tr>
-                
+               {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
               </tbody>
             </table>
           </div>
