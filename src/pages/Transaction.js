@@ -64,22 +64,18 @@ class Transaction extends Component {
         <div class="row">
           <div class="col-sm-4">
             <div><a>K</a></div>
-            <div><a>P</a></div>
-            <div><a>K</a></div>
-            <div><a>U</a></div>
-            <div><a>L</a></div>
-            <div><a>L</a></div>
+            
 
 
           </div>
-          <div class="col-sm-8">col
+          <div class="col-sm-8"> to do 
           
 </div>
 
         </div>
 
 
-        <h1> txt </h1>
+       
       </div>
 
 

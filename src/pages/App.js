@@ -7,6 +7,10 @@ import Complaint from './Complaint';
 import Tracking from './Tracking';
 import UserAccount from './UserAccount'
 import Transaction from './Transaction';
+import Dispatcher from './Dispatcher';
+import Couriers from './Couriers';
+import Admin from './Admin';
+import Parcels from './Parcels';
 
 class App extends Component {
     render() {
@@ -21,6 +25,11 @@ class App extends Component {
                     <Route path="/zglos" component={Complaint} />
                     <Route path="/moje-konto" component={UserAccount} />
                     <Route path="/transakcje" component={Transaction} />
+                    <Route path="/dyspozytor" component={Dispatcher} />
+                    <Route path="/admin" component={Admin} />
+                    <Route path="/kurierzy" component={Couriers} />
+                    <Route path="/paczki" component={Parcels} />
+
 
 
                 </div>
