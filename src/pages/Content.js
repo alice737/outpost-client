@@ -173,25 +173,25 @@ class Content extends Component{
            <div className="md-form form-sm">
              <i className="fa fa-user prefix grey-text"></i>
              <input type="text" id="form3" className="form-control form-control-sm"/>
-             <label for="form3">Imię</label>
+             <label>Imię</label>
            </div>
 
            <div className="md-form form-sm">
              <i className="fa fa-envelope prefix grey-text"></i>
              <input type="text" id="form2" className="form-control form-control-sm"/>
-             <label for="form2">Email</label>
+             <label >Email</label>
            </div>
 
            <div className="md-form form-sm">
              <i className="fa fa-tag prefix grey-text"></i>
              <input type="text" id="form32" className="form-control form-control-sm"/>
-             <label for="form34">Temat</label>
+             <label >Temat</label>
            </div>
 
            <div className="md-form form-sm">
              <i className="fa fa-pencil prefix grey-text"></i>
              <textarea type="text" id="form8" className="md-textarea form-control form-control-sm" rows="4"></textarea>
-             <label for="form8">Treśc</label>
+             <label >Treśc</label>
            </div>
 
            <div className="text-center mt-4">

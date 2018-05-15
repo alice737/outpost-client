@@ -16,7 +16,7 @@ class Footer extends Component {
                 </div>
                 <div className="col-sm-3">
                   <p>
-                    <a href="#!">WYŚLIJ PACZKĘ</a>
+                    <a href="">WYŚLIJ PACZKĘ</a>
                   </p>
                   <p>
                     <a >PUNKT OBSŁUGI PACZEK</a>
@@ -32,11 +32,11 @@ class Footer extends Component {
                 </div>
                 <div className="col-sm-3">
                   <p>
-                    <a href="#!">OBSŁUGA KLIENTA</a>
+                    <a href="">OBSŁUGA KLIENTA</a>
                   </p>
 
                   <p>
-                    <a href="#!">POMOC</a>
+                    <a href="">POMOC</a>
                   </p>
                 </div>
               </div>

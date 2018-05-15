@@ -18,28 +18,28 @@ class Complaint extends Component {
                     <form>
 
 
-                        <label for="ContactName">Nazwa zgłaszającego</label>
+                        <label >Nazwa zgłaszającego</label>
                         <input type="text" id="ContactName" className="form-control" />
 
 
 
 
-                        <label for="packNumber" >Numer Paczki</label>
+                        <label >Numer Paczki</label>
                         <input type="email" id="packNumber" className="form-control" />
 
 
 
 
-                        <label for="telephoneNumber" >Telefon</label>
+                        <label >Telefon</label>
                         <input type="text" id="telephoneNumber" className="form-control" />
 
 
-                        <label for="contactEmail" >Email</label>
+                        <label  >Email</label>
                         <input type="email" id="contactEmail" className="form-control" />
 
 
 
-                        <label for="contactSubject" >Temat</label>
+                        <label >Temat</label>
                         <input type="email" id="contactSubject" className="form-control" />
 
 

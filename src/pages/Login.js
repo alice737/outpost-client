@@ -22,12 +22,12 @@ class Login extends Component {
                                 <h1> Logowanie</h1>
                                 <p>Wpisz poprawny login i hasło by zalogowac sie do stystemu.</p>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
+                                    <label >Email</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Wpisz email" />
                                 </div>
 
                                 <div className="form-group">
-                                    <label for="exampleInputPassword1">Hasło</label>
+                                    <label >Hasło</label>
                                     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Hasło" />
                                 </div>
                                 <Link to="/moje-konto"> <button type="submit" className="btn btn-primary">Prześlij</button></Link>
@@ -42,25 +42,25 @@ class Login extends Component {
                                 <h1> Rejestracja</h1>
                                 <p>Zapisz się do systemu.</p>
                                 <div className="form-group">
-                                    <label for="exampleInputName">Imię</label>
+                                    <label>Imię</label>
                                     <input type="text" className="form-control" id="exampleInputName" placeholder="Wpisz imię" />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputLastName">Nazwisko</label>
+                                    <label >Nazwisko</label>
                                     <input type="text" className="form-control" id="exampleInputLastName" placeholder="Wpisz nazwisko" />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                    <label >Email</label>
+                                    <input type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
                                 </div>
 
                                 <div className="form-group">
-                                    <label for="exampleInputPassword1">Hasło</label>
-                                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Hasło" />
+                                    <label >Hasło</label>
+                                    <input type="password" className="form-control" id="exampleInputPassword" placeholder="Hasło" />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputPassword2">Hasło</label>
-                                    <input type="password2" className="form-control" id="exampleInputPassword1" placeholder="Powtorz hasło" />
+                                    <label >Hasło</label>
+                                    <input type="password2" className="form-control" id="exampleInputPasswordRewerse" placeholder="Powtorz hasło" />
                                 </div>
 
 

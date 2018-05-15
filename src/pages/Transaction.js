@@ -11,8 +11,6 @@ class Transaction extends Component {
     return (
 
       <div>
-
-
         <header>
           <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a className="navbar-brand" href="" >Out Post</a>
@@ -40,47 +38,28 @@ class Transaction extends Component {
                   <Link className="nav-link" to="/login">[NAME] Wyloguj</Link>
                 </li>
               </ul>
-
             </div>
           </nav>
         </header>
         <nav>
           <h1>xx</h1>
-
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <Link class="nav-link" to="/moje-konto">MOJE KONTO</Link>
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <Link className="nav-link" to="/moje-konto">MOJE KONTO</Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link active" to="/transakcje">MOJE TRANSAKCJE</Link>
+            <li className="nav-item">
+              <Link className="nav-link active" to="/transakcje">MOJE TRANSAKCJE</Link>
             </li>
-
           </ul>
-
-
-
         </nav>
-
-        <div class="row">
-          <div class="col-sm-4">
+        <div className="row">
+          <div className="col-sm-4">
             <div><a>K</a></div>
-            
-
-
           </div>
-          <div class="col-sm-8"> to do 
-          
-</div>
-
+          <div className="col-sm-8"> to do
+         </div>
         </div>
-
-
-       
       </div>
-
-
-
-
     );
   }
 }
