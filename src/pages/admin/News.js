@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 
 
-class DispatcherContent extends Component {
+class News extends Component {
 
     render() {
         let data = new Date();
@@ -16,14 +16,13 @@ class DispatcherContent extends Component {
                 </div>
 
                 <h2> Dziś jest {data.toLocaleDateString()} r</h2>
-                <h4> Zadania: </h4>
-                <p>Rozdzielenie paczek. </p>
-                <p>Monitorowanie statusow. </p>
-                <p>Zarzadzanie kurierami. </p>
-                <p>Tworzenie planu.</p>
-                <p>Zmiana regionu kuriera wedlug rozłożeenia paczek.</p>
+                <div>
+                <h4>  </h4>
+                <p>Wszystko jak na razie idzie w porządku po woli do celu. </p>
+                
+                </div>
 
-
+<img src="https://img-ovh-cloud.zszywka.pl/1/0169/8531-powoli-i-wytrwale-daz-do-celu-.jpg"  alt="W3Schools.com"/>
 
 
             </main>
@@ -32,4 +31,4 @@ class DispatcherContent extends Component {
     }
 }
 
-export default DispatcherContent;
+export default News;

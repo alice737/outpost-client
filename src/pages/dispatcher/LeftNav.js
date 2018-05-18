@@ -1,71 +1,60 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import '../pagestyle/dispatcher.css'
 
-class AdminLeftNav extends Component{
+
+import '../../pagestyle/dispatcher.css'
+
+class LeftNav extends Component{
+  constructor(){
+    super();
+    this.state={
+      nav:''
+    };
+  }
     render(){
         return(
-          
-            
-      
-        <nav className="col-md-2  d-md-block bg-light sidebar" id="nav-padd">
+    
+        <nav className="col-md-2 d-md-block bg-light sidebar" id="nav-padd">
           <div className="sidebar-sticky">
             <ul className="nav flex-column">
-              <li class="nav-item">
-                <Link className="nav-link " id="item-nav" to="/">
+              <li className="nav-item">
+                <Link className="nav-link " id="item-nav" to="/dyspozytor"  >
                   <span data-feather="home"></span>
-                  Aktualności <span class="sr-only">(current)</span>
+                  Aktualności <span className="sr-only">(current)</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link"id="item-nav" to="/">
-                  <span data-feather="file"></span>
-                  Pracowncy
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/paczki">
+                <Link className="nav-link"id="item-nav" to="/kurierzy">
                   <span data-feather="file"></span>
                   Kurierzy
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="">
+                <Link className="nav-link" id="item-nav" to="/paczki">
                   <span data-feather="file"></span>
-                  Dyspozytorzy
+                  Paczki
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" id="item-nav" to="">
                   <span data-feather="file"></span>
-                  Dodaj pracownika
+                  Zmiany
                 </Link>
               </li>
               <li className="nav-item">
-                <Link class="nav-link" id="item-nav"  to="">
+                <Link className="nav-link" id="item-nav" to="">
                   <span data-feather="file"></span>
-                  Zmień uprawnienia
+                  Regiony
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="">
+                <Link className="nav-link" id="item-nav-last"  to="">
                   <span data-feather="file"></span>
-                 Statystyki
+                  Utworz plan
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="">
-                  <span data-feather="file"></span>
-                 Ustawienia
-                </Link>
-              </li>
-            
-            
-            
             </ul>
           </div>
-        
-
      </nav>
     
         );
@@ -73,4 +62,4 @@ class AdminLeftNav extends Component{
     }
 }
  
-export default AdminLeftNav;
+export default LeftNav;

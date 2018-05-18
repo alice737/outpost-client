@@ -20,13 +20,13 @@ class Navbar extends Component {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#oferta">Oferta</a>
+                  <a className="nav-link" href="/">Oferta</a>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/ceny">Cennik</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#kontakt">Kontakt</a>
+                  <a className="nav-link" href="/">Kontakt</a>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">Logowanie/Rejestracja</Link>

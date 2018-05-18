@@ -12,7 +12,7 @@ class CourierContent extends Component{
               <h1 id="nav-padd" className="h2">Kurierzy</h1>
             
             </div>
-            <Courier />
+            <Courier/>
           </main>
         
         );  
