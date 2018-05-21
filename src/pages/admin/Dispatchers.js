@@ -17,7 +17,7 @@ class Dispatchers extends Component {
         axios.get('http://localhost:8080/employee/dispatchers')
             .then(response => {
                 this.setState({
-                    couriers: response.data
+                    dispatchers: response.data
                 });
 
                 console.log(response);

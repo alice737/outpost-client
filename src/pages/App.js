@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home'
 import Complaint from './Complaint';
 import Tracking from './Tracking';
-import UserAccount from './UserAccount'
-import Transaction from './Transaction';
+import MyAccount from './MyAccount'
+
 import Dispatcher from './dispatcher/Dispatcher';
 import Couriers from './dispatcher/Couriers';
 
@@ -19,6 +19,10 @@ import CouriersList from './admin/CouriersList'
 import Employees from './admin/Employees'
 import EditEmployee from './admin/EditEmployee'
 import DeleteEmployee from './admin/DeleteEmployee'
+import MyPayments from './MyPayments';
+import MyParcels from './MyParcels';
+import SendParcel from './SendParcel';
+import ChangePassword from './ChangePassword';
 //import Statistic from './admin/Statistic'
 
 class App extends Component {
@@ -27,33 +31,28 @@ class App extends Component {
 
             <Router>
                 <div>
+
                     <Route exact path="/" component={Home} />
-                    <Route path="/ceny" component={Prices} />
+                    <Route path="/prices" component={Prices} />
                     <Route path="/login" component={Login} />
-                    <Route path="/sledz" component={Tracking} />
-                    <Route path="/zglos" component={Complaint} />
-                    <Route path="/moje-konto" component={UserAccount} />
-                    <Route path="/transakcje" component={Transaction} />
-                    <Route path="/dyspozytor" component={Dispatcher} />
+                    <Route path="/track" component={Tracking} />
+                    <Route path="/complaint" component={Complaint} />
+                    <Route path="/myaccount" component={MyAccount} />
+                    <Route path="/payments" component={MyPayments} />
+                    <Route path="/parcels" component={MyParcels} />
+                    <Route path="/send" component={SendParcel} />
+                    <Route path="/changepassword" component={ChangePassword} />
+                    <Route path="/dispatcher" component={Dispatcher} />
+                    <Route path="/plancarriers" component={Couriers} />
+                    <Route path="/planparcels" component={Parcels} />
                     <Route path="/admin" component={Admin} />
-                    <Route path="/kurierzy" component={Couriers} />
-                    <Route path="/paczki" component={Parcels} />
-                    <Route path="/add" component={AddEmployee} />
-                    <Route path="/Aadministratorzy" component={Administrators} />
-                    <Route path="/Adyspozytorzy" component={Dispatchers} />
-                    <Route path="/Akurierzy" component={CouriersList} />
-                    <Route path="/Awszyscy" component={Employees} />
-                    <Route path="/Aedycja" component={EditEmployee} />
-                    <Route path="/Ausuwanie" component={DeleteEmployee} />
-
-
-
-
-
-
-
-
-
+                    <Route path="/addemployee" component={AddEmployee} />
+                    <Route path="/administrators" component={Administrators} />
+                    <Route path="/dispatchers" component={Dispatchers} />
+                    <Route path="/carriers" component={CouriersList} />
+                    <Route path="/allemployees" component={Employees} />
+                    <Route path="/editemployee" component={EditEmployee} />
+                    <Route path="/deleteemployee" component={DeleteEmployee} />
                 </div>
             </Router>
         );

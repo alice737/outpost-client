@@ -19,7 +19,7 @@ class Administrators extends Component {
         axios.get('http://localhost:8080/employee/administrators')
             .then(response => {
                 this.setState({
-                    couriers: response.data
+                    administrators: response.data
                 });
 
                 console.log(response);

@@ -78,8 +78,8 @@ class CouriersList extends Component {
                                 </tbody>
                             </table>
                             <Link className="nav-link" id="item-nav" to="/add">
-                            <span class="hint--right" aria-label="Dodaj nowego K
-                            uriera!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
+                            <span className="hint--right" aria-label="Dodaj nowego K
+                            uriera!"><i className="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
                 </Link>
                         </div>
                         </main>

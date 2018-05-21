@@ -4,8 +4,6 @@ import React, { Component } from 'react'
 import NavbarDetail from './NavbarDetail'
 import Footer from './Footer'
 //import '../pagestyle/login.css'
-import { Link } from 'react-router-dom';
-
 
 class Login extends Component {
     constructor(props) {

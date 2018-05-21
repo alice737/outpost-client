@@ -12,57 +12,57 @@ class AdminLeftNav extends Component{
         <nav className="col-md-2  d-md-block bg-light sidebar" id="nav-padd">
           <div className="sidebar-sticky">
             <ul className="nav flex-column">
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link " id="item-nav" to="/admin">
                   <span data-feather="home"></span>
-                  Aktualności <span class="sr-only">(current)</span>
+                  Aktualności <span className="sr-only">(current)</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link"id="item-nav" to="/Awszyscy">
+                <Link className="nav-link"id="item-nav" to="/allemployees">
                   <span data-feather="file"></span>
                   Pracownicy
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/Akurierzy">
+                <Link className="nav-link" id="item-nav" to="/carriers">
                   <span data-feather="file"></span>
                   Kurierzy
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="Adyspozytorzy">
+                <Link className="nav-link" id="item-nav" to="/dispatchers">
                   <span data-feather="file"></span>
                   Dyspozytorzy
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/Aadministratorzy">
+                <Link className="nav-link" id="item-nav" to="/administrators">
                   <span data-feather="file"></span>
                  Administratorzy
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/add">
+                <Link className="nav-link" id="item-nav" to="/addemployee">
                   <span data-feather="file"></span>
                   Dodaj nowego pracownika
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/Aedycja">
+                <Link className="nav-link" id="item-nav" to="/editemployee">
                   <span data-feather="file"></span>
                   Edytuj dane pracownika
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/Ausuwanie">
+                <Link className="nav-link" id="item-nav" to="/deleteemployee">
                   <span data-feather="file"></span>
                   Usun pracownika
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link class="nav-link" id="item-nav"  to="">
+                <Link className="nav-link" id="item-nav"  to="">
                   <span data-feather="file"></span>
                   Zmień uprawnienia
                 </Link>

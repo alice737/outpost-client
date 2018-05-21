@@ -24,7 +24,7 @@ class NavbarDetail extends Component {
                   <Link className="nav-link" to="/">Oferta</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/ceny">Cennik</Link>
+                  <Link className="nav-link" to="/prices">Cennik</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/">Kontakt</Link>

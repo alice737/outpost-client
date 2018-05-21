@@ -24,10 +24,10 @@ class Footer extends Component {
                 </div>
                 <div className="col-sm-3">
                   <p>
-                    <Link to="/sledz">ŚLEDŹ PACZKĘ</Link>
+                    <Link to="/tack">ŚLEDŹ PACZKĘ</Link>
                   </p>
                   <p>
-                    <Link to="/zglos">REKLAMACJA</Link>
+                    <Link to="/complaint">REKLAMACJA</Link>
                   </p>
                 </div>
                 <div className="col-sm-3">

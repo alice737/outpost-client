@@ -41,66 +41,24 @@ class UserNav extends Component {
         </header>
         <nav>
           <h1>xx</h1>
-
           <ul className="nav nav-tabs" id="tab">
-            <li className="nav-item">
-              <Link class="nav-link" id="link-hover" to="/moje-konto">MOJE KONTO</Link>
+            <li className="nav-item active" id="tab-border">
+              <Link class="nav-link " id="link-hover" to="/myaccount">MOJE KONTO</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" id="link-hover" to="/transakcje">MOJE TRANSAKCJE</Link>
+            <li className="nav-item"  id="tab-border">
+              <Link className="nav-link" id="link-hover" to="/parcels">MOJE PRZESYŁKI</Link>
             </li>
-
+            <li className="nav-item"  id="tab-border">
+              <Link className="nav-link" id="link-hover" to="/send">WYŚLIJ PRZESYŁKĘ</Link>
+            </li>
+            <li className="nav-item" id="tab-border">
+              <Link className="nav-link" id="link-hover" to="/payments">MOJE PŁATNOŚCI</Link>
+            </li>
+            <li className="nav-item" id="tab-border">
+              <Link className="nav-link" id="link-hover" to="/changepassword">ZMIEŃ HASŁO</Link>
+            </li>
           </ul>
-
-
-
         </nav>
-
-        <div class="row">
-          <div class="col-sm-6" id="col6">
-            <div className="card" id="border">
-              <div class="card-body" id="card-padd">
-                <h5 class="card-title" id="card-title-padd">Logowanie i bezpieczeństwo konta</h5>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6" id="col6">
-            <div class="card" id="border">
-              <div class="card-body" id="card-padd">
-                <h5 class="card-title" id="card-title-padd">Ustawienia konta</h5>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6" id="col6">
-            <div class="card" id="border">
-              <div class="card-body" id="card-padd">
-                <h5 class="card-title" id="card-title-padd">Rachunki</h5>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6" id="col6">
-            <div class="card" id="border">
-              <div class="card-body" id="card-padd">
-                <h5 class="card-title" id="card-title-padd">Ocena sprzedaży</h5>
-
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-                <div className="link-to"><a>Link</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     );
   }
