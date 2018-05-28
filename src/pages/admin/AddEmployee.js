@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import DispatcherNav from '../dispatcher/DispatcherNav';
 import AdminLeftNav from './AdminLeftNav';
-
+import Admin from './Admin';
+import { Route, Redirect } from 'react-router'
 
 class AddEmployee extends Component {
     constructor(props) {
@@ -11,16 +12,18 @@ class AddEmployee extends Component {
             name: '',
             surname: '',
             telNumber: '',
+            email: '',
             street: '',
             street_number: '',
             house_number: '',
             city: '',
             postal_code: '',
-
+            isLoggedIn: "false"
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
 
@@ -48,19 +51,21 @@ class AddEmployee extends Component {
             this.setState({ city: e.target.value });
         } else if (e.target.id === 'postal_code') {
             this.setState({ postal_code: e.target.value });
+        }else if (e.target.id === 'email') {
+            this.setState({ email: e.target.value });
         }
     }
 
+
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.name);
         event.preventDefault();
-        fetch('https://jsonplaceholder.typicode.com/posts/', {
+        fetch('http://193.33.111.170/admin/saveEmployee', {
             method: 'POST',
-            //  mode: 'no-cors', // no-cors
             body: JSON.stringify({
                 type: this.state.type,
                 name: this.state.name,
                 surname: this.state.surname,
+                email: this.state.email,
                 telNumber: this.state.telNumber,
                 street: this.state.street,
                 street_number: this.state.street_number,
@@ -73,12 +78,31 @@ class AddEmployee extends Component {
                 'Accept': 'application/json',
                 "Content-type": "application/json; charset=UTF-8"
             }
-        })
-            .then(response => response.json())
-            .then(json => console.log(json))
+        }).then(function (response) {
+            if (!response.ok) {
+                alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
+                throw Error(response.statusText);
+                console.log(response.statusText);
+
+            }
+            return response;
+        }).then(function (response) {
+            console.log("ok");
+            alert('Nowy pracownik dodany do bazy')
+            ///this.setState({ isLoggedIn: "true"});
+            //  console.log(this.isLoggedIn)
+            // <Redirect push to='/admin'/>;
+
+        }).catch(function (error) {
+
+            console.log(error);
+
+        });
+
     }
 
     render() {
+
         return (
             <div>
                 <div className="container-fluid" id="container-wi">
@@ -92,37 +116,57 @@ class AddEmployee extends Component {
                             </div>
                             <div className="container">
 
-                                <form onSubmit={this.handleSubmit}  className="form-signin">
-                                    <label >Imie</label>
-                                    <input type="text" autoComplete='name' id="name" className="form-control" onChange={this.handleChange} required />
-                                    <label >Nazwisko</label>
-                                    <input type="text" autoComplete='family-name' id="surname" className="form-control" onChange={this.handleChange} required />
-                                    <label >Telefon</label>
-                                    <input type="text" autoComplete='address-line1' id="telNumber" className="form-control" onChange={this.handleChange} required />
-                                    <label >Ulica</label>
-                                    <input type="text" autoComplete='address-line2' id="street" className="form-control" onChange={this.handleChange} required />
-                                    <label >Numer ulicy</label>
-                                    <input type="text" autoComplete='address-line2' id="street_number" className="form-control" onChange={this.handleChange} required />
-                                    <label >Numer domu </label>
-                                    <input type="text" autoComplete='address-line1' id="house_number" className="form-control" onChange={this.handleChange} required />
-                                    <label >Miasto</label>
-                                    <input type="text" autoComplete='address-line2' id="city" className="form-control" onChange={this.handleChange} required />
-                                    <label >Kod pocztowy</label>
-                                    <input type="text" autoComplete='postal-code' id="postal_code" className="form-control" onChange={this.handleChange} required />
-                                    <div class="form-check">
-                                    <label><input class="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "carrier"} id="carrier" value="carrier" /> Kurier </label>
+                                <form onSubmit={this.handleSubmit} className="form-signin">
+                                    <div className="form-group">
+                                        <label >Imie</label>
+                                        <input type="text" autoComplete='name' id="name" className="form-control" onChange={this.handleChange} required />
                                     </div>
-                                    <div class="form-check">
-                                    <label><input class="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "dispatcher"} id="dispatcher" value="dispatcher" /> Dyspozytor </label>
+                                    <div className="form-group">
+                                        <label >Nazwisko</label>
+                                        <input type="text" autoComplete='family-name' id="surname" className="form-control" onChange={this.handleChange} required />
                                     </div>
-                                    <div class="form-check">
-                                    <label><input class="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "admin"} id="admin" value="admin" /> Administrator </label>
-                                   </div>
+                                    <div className="form-group">
+                                        <label >Telefon</label>
+                                        <input type="text" autoComplete='address-line1' id="telNumber" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Email</label>
+                                        <input type="text" autoComplete='email' id="email" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Ulica</label>
+                                        <input type="text" autoComplete='address-line2' id="street" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Numer ulicy</label>
+                                        <input type="text" autoComplete='address-line2' id="street_number" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Numer domu </label>
+                                        <input type="text" autoComplete='address-line1' id="house_number" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Miasto</label>
+                                        <input type="text" autoComplete='address-line2' id="city" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Kod pocztowy</label>
+                                        <input type="text" autoComplete='postal-code' id="postal_code" className="form-control" onChange={this.handleChange} required />
+                                    </div>
+                                    <div className="form-check">
+                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "carrier"} id="carrier" value="carrier" /> Kurier </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "dispatcher"} id="dispatcher" value="dispatcher" /> Dyspozytor </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "admin"} id="admin" value="admin" /> Administrator </label>
+                                    </div>
 
 
                                     <div className="text-center mt-4">
-                                        {/* <button className="btn btn-primary" type="submit">Prześlij<i className="fa fa-paper-plane-o ml-2"></i></button> */}
-                                        <input class="btn btn-primary my-3" type="submit" value="Prześlij" />
+                                        <input className="btn btn-primary my-3" type="submit" value="Prześlij" >
+                                        </input>
                                     </div>
                                 </form>
 

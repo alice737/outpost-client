@@ -30,7 +30,10 @@ class NavbarDetail extends Component {
                   <Link className="nav-link" to="/">Kontakt</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">Logowanie/Rejestracja</Link>
+                  <Link className="nav-link" to="/login">Logowanie</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/registration">Rejestracja</Link>
                 </li>
               </ul>
 

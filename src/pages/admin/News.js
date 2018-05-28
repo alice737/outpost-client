@@ -18,11 +18,11 @@ class News extends Component {
                 <h2> Dziś jest {data.toLocaleDateString()} r</h2>
                 <div>
                 <h4>  </h4>
-                <p>Wszystko jak na razie idzie w porządku po woli do celu. </p>
+                {/* <p>Wszystko jak na razie idzie w porządku po woli do celu. </p> */}
                 
                 </div>
 
-<img src="https://img-ovh-cloud.zszywka.pl/1/0169/8531-powoli-i-wytrwale-daz-do-celu-.jpg"  alt="W3Schools.com"/>
+{/* <img src="https://img-ovh-cloud.zszywka.pl/1/0169/8531-powoli-i-wytrwale-daz-do-celu-.jpg"  alt="W3Schools.com"/> */}
 
 
             </main>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import DispatcherNav from '../dispatcher/DispatcherNav';
-import AdminLeftNav from './AdminLeftNav';
+import MyAccountNav from './MyAccountNav'
 import axios from 'axios';
 
-class EditEmployee extends Component {
+class EditAccount extends Component {
 
     constructor(props) {
         super(props);
@@ -67,9 +67,8 @@ class EditEmployee extends Component {
     handleSubmit(event) {
         //on update 
         event.preventDefault();
-        fetch('http://193.33.111.170/admin/editEmployee/', {
+        fetch('http://193.33.111.170/admin/all/', {
             method: 'PUT',
-            // mode: 'no-cors', // no-cors
             body: JSON.stringify({
                 type: this.state.type,
                 name: this.state.name,
@@ -95,8 +94,8 @@ class EditEmployee extends Component {
             <div>
                 <div className="container-fluid" id="container-wi">
                     <div className="row">
-                        <DispatcherNav />
-                        <AdminLeftNav />
+                    <DispatcherNav />
+                        <MyAccountNav />
                         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                                 <h1 id="nav-padd" className="h2">Edytuj dane pracownika</h1>
@@ -159,4 +158,4 @@ class EditEmployee extends Component {
 
     }
 }
-export default EditEmployee;
+export default EditAccount;

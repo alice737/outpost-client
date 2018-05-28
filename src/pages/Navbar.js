@@ -7,7 +7,7 @@ class Navbar extends Component {
       <div>
         <header>
           <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a className="navbar-brand" href="" >Out Post</a>
+            <a className="navbar-brand" href="/" >Out Post</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
               aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -20,16 +20,19 @@ class Navbar extends Component {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/">Oferta</a>
+                  <a className="nav-link" href="#oferta">Oferta</a>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/prices">Cennik</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/">Kontakt</a>
+                  <a className="nav-link" href="#kontakt">Kontakt</a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">Logowanie/Rejestracja</Link>
+                  <Link className="nav-link" to="/login">Logowanie</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/registration">Rejestracja</Link>
                 </li>
               </ul>
 

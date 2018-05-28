@@ -18,12 +18,12 @@ class Employees extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/employee/all')
+        axios.get('http://193.33.111.170/admin/all')
             .then(response => {
                 this.setState({
                     couriers: response.data.carriers,
-                    dispatchers:response.data.dispatchers,
-                    administrators:response.data.administrators
+                    dispatchers: response.data.dispatchers,
+                    administrators: response.data.administrators
                 });
 
                 console.log(response);
@@ -42,133 +42,111 @@ class Employees extends Component {
                         <DispatcherNav />
                         <AdminLeftNav />
                         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-              <h1 id="nav-padd" className="h2">Kurierzy</h1>
-            
-            </div>
-                        <div className="table-responsive">
-                            <table className="table table-striped table-sm">
-                                <thead>
-                                    <tr>
+                            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                                <h1 id="nav-padd" className="h2">Kurierzy</h1>
 
-                                        <th>Imie</th>
-                                        <th>Nazwisko</th>
-                                        <th>Telefon</th>
-                                        <th>Ulica</th>
-                                        <th>Numer ulicy</th>
-                                        <th>Numer domu</th>
-                                        <th>Miasto</th>
-                                        <th>Kod pocztowy</th>
+                            </div>
+                            <div className="table-responsive">
+                                <table className="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.state.couriers.map((item, index) => (
-                                        <tr key={index}>
-                                            <td> {item.personalia.name}</td>
-                                            <td> {item.personalia.surname}</td>
-                                            <td> {item.personalia.telNumber}</td>
-                                            <td> {item.personalia.address.street}</td>
-                                            <td> {item.personalia.address.street_number}</td>
-                                            <td> {item.personalia.address.house_number}</td>
-                                            <td> {item.personalia.address.city}</td>
-                                            <td> {item.personalia.address.postal_code}</td>
+                                            <th>Id</th>
+                                            <th>Imie</th>
+                                            <th>Nazwisko</th>
+                                            <th>Szczegoły</th>
+
 
                                         </tr>
-                                    ))}
+                                    </thead>
+                                    <tbody>
+                                        {this.state.couriers.map((item, index) => (
+                                            <tr key={index}>
+                                                <td> {item.id}</td>
+                                                <td> {item.personalia.name}</td>
+                                                <td> {item.personalia.surname}</td>
 
-                                    {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
-                                </tbody>
-                            </table>
-                            <Link className="nav-link" id="item-nav" to="/add">
-                            <span class="hint--right" aria-label="Dodaj nowego Kuriera!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
-                </Link>
-                        </div>
-                        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-              <h1 id="nav-padd" className="h2">Dyspozytorzy</h1>
-            
-            </div>
-                        <div className="table-responsive">
-                            <table className="table table-striped table-sm">
-                                <thead>
-                                    <tr>
+                                                <td><Link to={`/user/carriers/${item.id}`}><button>Więcej</button></Link></td>
 
-                                        <th>Imie</th>
-                                        <th>Nazwisko</th>
-                                        <th>Telefon</th>
-                                        <th>Ulica</th>
-                                        <th>Numer ulicy</th>
-                                        <th>Numer domu</th>
-                                        <th>Miasto</th>
-                                        <th>Kod pocztowy</th>
+                                            </tr>
+                                        ))}
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.state.dispatchers.map((item, index) => (
-                                        <tr key={index}>
-                                            <td> {item.personalia.name}</td>
-                                            <td> {item.personalia.surname}</td>
-                                            <td> {item.personalia.telNumber}</td>
-                                            <td> {item.personalia.address.street}</td>
-                                            <td> {item.personalia.address.street_number}</td>
-                                            <td> {item.personalia.address.house_number}</td>
-                                            <td> {item.personalia.address.city}</td>
-                                            <td> {item.personalia.address.postal_code}</td>
+                                    </tbody>
+                                </table>
+                                <Link className="nav-link" id="item-nav" to="/addemployee">
+                                    <span class="hint--right" aria-label="Dodaj nowego Kuriera!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
+                                </Link>
+                            </div>
+                            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                                <h1 id="nav-padd" className="h2">Dyspozytorzy</h1>
+
+                            </div>
+                            <div className="table-responsive">
+                                <table className="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Id</th>
+                                            <th>Imie</th>
+                                            <th>Nazwisko</th>
+                                            <th>Szczegoły</th>
 
                                         </tr>
-                                    ))}
+                                    </thead>
+                                    <tbody>
+                                        {this.state.dispatchers.map((item, index) => (
+                                            <tr key={index}>
+                                                <td> {item.id}</td>
+                                                <td> {item.personalia.name}</td>
+                                                <td> {item.personalia.surname}</td>
 
-                                    {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
-                                </tbody>
-                            </table>
-                            <Link className="nav-link" id="item-nav" to="/add">
-                            <span class="hint--right" aria-label="Dodaj nowego Dyspozytora!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
-                </Link>
-                            
-                        </div>
-                        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-              <h1 id="nav-padd" className="h2">Administatorzy</h1>
-            
-            </div>
-                        <div className="table-responsive">
-                            <table className="table table-striped table-sm">
-                                <thead>
-                                    <tr>
+                                                <td><Link to={`/user/dispatchers/${item.id}`}><button>Więcej</button></Link></td>
 
-                                        <th>Imie</th>
-                                        <th>Nazwisko</th>
-                                        <th>Telefon</th>
-                                        <th>Ulica</th>
-                                        <th>Numer ulicy</th>
-                                        <th>Numer domu</th>
-                                        <th>Miasto</th>
-                                        <th>Kod pocztowy</th>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                                <Link className="nav-link" id="item-nav" to="/addemployee">
+                                    <span class="hint--right" aria-label="Dodaj nowego Dyspozytora!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
+                                </Link>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.state.administrators.map((item, index) => (
-                                        <tr key={index}>
-                                            <td> {item.personalia.name}</td>
-                                            <td> {item.personalia.surname}</td>
-                                            <td> {item.personalia.telNumber}</td>
-                                            <td> {item.personalia.address.street}</td>
-                                            <td> {item.personalia.address.street_number}</td>
-                                            <td> {item.personalia.address.house_number}</td>
-                                            <td> {item.personalia.address.city}</td>
-                                            <td> {item.personalia.address.postal_code}</td>
+                            </div>
+                            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                                <h1 id="nav-padd" className="h2">Administatorzy</h1>
+
+                            </div>
+                            <div className="table-responsive">
+                                <table className="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Id</th>
+                                            <th>Imie</th>
+                                            <th>Nazwisko</th>
+                                            <th>Szczegoły</th>
+
 
                                         </tr>
-                                    ))}
+                                    </thead>
+                                    <tbody>
+                                        {this.state.administrators.map((item, index) => (
+                                            <tr key={index}>
+                                                <td> {item.id}</td>
+                                                <td> {item.personalia.name}</td>
+                                                <td> {item.personalia.surname}</td>
 
-                                    {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
-                                </tbody>
-                            </table>
-                            <Link className="nav-link" id="item-nav" to="/add">
-                            <span class="hint--right" aria-label="Dodaj nowego Administratora!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
-                </Link>
-                        </div>
+                                                <td><Link to={`/user/administrators/${item.id}`}><button>Więcej</button></Link></td>
+
+                                            </tr>
+                                        ))}
+
+
+                                    </tbody>
+                                </table>
+                                <Link className="nav-link" id="item-nav" to="/addemployee">
+                                    <span class="hint--right" aria-label="Dodaj nowego Administratora!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
+                                </Link>
+                            </div>
                         </main>
                     </div>
                 </div>

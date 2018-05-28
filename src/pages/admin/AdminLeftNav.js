@@ -49,32 +49,27 @@ class AdminLeftNav extends Component{
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/editemployee">
+                <Link className="nav-link" id="item-nav" to="/addparcel">
                   <span data-feather="file"></span>
-                  Edytuj dane pracownika
+                  Dodaj paczke
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/deleteemployee">
-                  <span data-feather="file"></span>
-                  Usun pracownika
-                </Link>
-              </li>
+           
 
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="">
+                <Link className="nav-link" id="item-nav"  to="/admin">
                   <span data-feather="file"></span>
                   Zmień uprawnienia
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="">
+                <Link className="nav-link" id="item-nav"  to="/admin">
                   <span data-feather="file"></span>
                  Statystyki
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="">
+                <Link className="nav-link" id="item-nav"  to="/admin">
                   <span data-feather="file"></span>
                  Ustawienia
                 </Link>

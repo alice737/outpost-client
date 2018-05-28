@@ -16,7 +16,7 @@ class Footer extends Component {
                 </div>
                 <div className="col-sm-3">
                   <p>
-                    <a href="">WYŚLIJ PACZKĘ</a>
+                    <a href="/login">WYŚLIJ PACZKĘ</a>
                   </p>
                   <p>
                     <a >PUNKT OBSŁUGI PACZEK</a>
@@ -24,7 +24,7 @@ class Footer extends Component {
                 </div>
                 <div className="col-sm-3">
                   <p>
-                    <Link to="/tack">ŚLEDŹ PACZKĘ</Link>
+                    <Link to="/track">ŚLEDŹ PACZKĘ</Link>
                   </p>
                   <p>
                     <Link to="/complaint">REKLAMACJA</Link>
@@ -36,7 +36,7 @@ class Footer extends Component {
                   </p>
 
                   <p>
-                    <a href="">POMOC</a>
+                    <a href="/">POMOC</a>
                   </p>
                 </div>
               </div>
@@ -50,8 +50,8 @@ class Footer extends Component {
 
               <div className="col-md-4 col-lg-3">
                 <h5 className="text-uppercase mb-4 font-weight-bold">OutPost</h5>
-                <p>to do </p>
-                <p>to do </p>
+                <p> </p>
+                <p> </p>
               </div>
 
 
@@ -62,16 +62,16 @@ class Footer extends Component {
                 <h5 className="text-uppercase mb-4 font-weight-bold">O nas</h5>
                 <ul className="list-unstyled">
                   <p>
-                    <a href="">KARIERA</a>
+                    <a href="/">KARIERA</a>
                   </p>
                   <p>
-                    <a href="">O NAS</a>
+                    <a href="#onas">O NAS</a>
                   </p>
                   <p>
-                    <a href="">BLOG</a>
+                    <a href="/">BLOG</a>
                   </p>
                   <p>
-                    <a href="">NAGRODY</a>
+                    <a href="/">NAGRODY</a>
                   </p>
                 </ul>
               </div>

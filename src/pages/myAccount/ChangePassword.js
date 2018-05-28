@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import UserNav from './UserNav';
-import Footer from './Footer'
+import DispatcherNav from '../dispatcher/DispatcherNav';
+import MyAccountNav from './MyAccountNav'
 class ChangePassword extends Component{
     render(){
         var formStyle = {
@@ -9,10 +9,18 @@ class ChangePassword extends Component{
         return(
             <div>
 
-            <UserNav />
-            <h1></h1>
+                     <div className="container-fluid" id="container-wi">
+                    <div className="row">
+                        <DispatcherNav />
+                        <MyAccountNav />
+                        <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                                <h1 id="nav-padd" className="h2">Zmień hasło </h1>
+
+                            </div>
+           
             <form className="form-signin" style={formStyle} onSubmit={this.handleSubmitRegister}>
-                                <h1>Zmień hasło</h1>
+                                
                             
                                 <div className="form-group">
                                     <label>Stare hasło</label>
@@ -29,8 +37,11 @@ class ChangePassword extends Component{
                                
                                 <input type="submit" className="btn btn-primary" value="Zapisz" />
                             </form>
-            <Footer />
-        </div>
+   
+                            </main>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../../pagestyle/dispatcher.css'
 
-class LeftNav extends Component{
+class MyAccoutNav extends Component{
   constructor(){
     super();
     this.state={
@@ -18,39 +18,39 @@ class LeftNav extends Component{
           <div className="sidebar-sticky">
             <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link " id="item-nav" to="/dispatcher"  >
+                <Link className="nav-link " id="item-nav" to="/usernews"  >
                   <span data-feather="home"></span>
                   Aktualności <span className="sr-only">(current)</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link"id="item-nav" to="/plancarriers">
+                <Link className="nav-link"id="item-nav" to="/editaccount">
                   <span data-feather="file"></span>
-                  Kurierzy
+                  Edytuj dane
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/planparcels">
+                <Link className="nav-link" id="item-nav" to="/send">
                   <span data-feather="file"></span>
-                  Paczki
+                 Wyślij paczkę
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/dispatcher">
+                <Link className="nav-link" id="item-nav" to="/payments">
                   <span data-feather="file"></span>
-                  Zmiany
+                  Moje płatności
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/dispatcher">
+                <Link className="nav-link" id="item-nav" to="/parcels">
                   <span data-feather="file"></span>
-                  Regiony
+                 Sprawdź status paczki
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav-last"  to="/dispatcher">
+                <Link className="nav-link" id="item-nav-last"  to="/changepassword">
                   <span data-feather="file"></span>
-                  Utworz plan
+                  Zmień hasło
                 </Link>
               </li>
             </ul>
@@ -62,4 +62,4 @@ class LeftNav extends Component{
     }
 }
  
-export default LeftNav;
+export default MyAccoutNav;
