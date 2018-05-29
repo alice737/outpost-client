@@ -14,7 +14,7 @@ class User extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://193.33.111.170/employee/' + this.props.match.params.type;
+        let url = 'http://193.33.111.170:8080/employee/' + this.props.match.params.type;
         axios.get(url)
             .then(response => {
                 this.setState({

@@ -18,7 +18,7 @@ class Employees extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://193.33.111.170/admin/all')
+        axios.get('http://193.33.111.170:8080/admin/all')
             .then(response => {
                 this.setState({
                     couriers: response.data.carriers,

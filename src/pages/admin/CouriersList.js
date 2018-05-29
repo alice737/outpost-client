@@ -17,7 +17,7 @@ class CouriersList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://193.33.111.170/admin/carriers')
+        axios.get('http://193.33.111.170:8080/admin/carriers')
             .then(response => {
                 this.setState({
                     couriers: response.data

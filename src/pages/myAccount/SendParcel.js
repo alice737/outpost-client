@@ -59,7 +59,7 @@ class SendParcel extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://193.33.111.170/admin/addParcel', {
+        fetch('http://193.33.111.170:8080/admin/addParcel', {
             method: 'POST',
             body: JSON.stringify({
                 recipientName: this.state.recipientName,

@@ -53,7 +53,7 @@ class EditAccount extends Component {
         }
     }
     componentDidMount() {
-        let url = 'http://193.33.111.170/admin/all/' + this.props.match.params.type;
+        let url = 'http://193.33.111.170:8080/admin/all/' + this.props.match.params.type;
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -67,7 +67,7 @@ class EditAccount extends Component {
     handleSubmit(event) {
         //on update 
         event.preventDefault();
-        fetch('http://193.33.111.170/admin/all/', {
+        fetch('http://193.33.111.170:8080/admin/all/', {
             method: 'PUT',
             body: JSON.stringify({
                 type: this.state.type,
