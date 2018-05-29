@@ -54,6 +54,12 @@ class AdminLeftNav extends Component{
                   Dodaj paczke
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" id="item-nav" to="/parcellist">
+                  <span data-feather="file"></span>
+                  Lista paczek
+                </Link>
+              </li>
            
 
               <li className="nav-item">

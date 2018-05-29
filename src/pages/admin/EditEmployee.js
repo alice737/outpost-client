@@ -68,13 +68,14 @@ class EditEmployee extends Component {
         //on update 
         event.preventDefault();
         fetch('http://193.33.111.170:8080/admin/editEmployee/', {
-            method: 'PUT',
+            method: 'POST',
             // mode: 'no-cors', // no-cors
             body: JSON.stringify({
                 type: this.state.type,
                 name: this.state.name,
                 surname: this.state.surname,
                 telNumber: this.state.telNumber,
+                email: "on@gmail.com",
                 street: this.state.street,
                 street_number: this.state.street_number,
                 house_number: this.state.street_number,
@@ -108,15 +109,15 @@ class EditEmployee extends Component {
 
                                             <div className="form-group">
                                                 <label >Imie</label>
-                                                <input defaultValue={item.personalia.name} type="text" autoComplete='name' id="name" className="form-control" onChange={this.handleChange} required />
+                                                <input  value={this.state.name} defaultValue={item.personalia.name} type="text" autoComplete='name' id="name" className="form-control" onChange={this.handleChange} required />
                                             </div>
                                             <div className="form-group">
                                                 <label >Nazwisko</label>
-                                                <input defaultValue={item.personalia.surname} type="text" autoComplete='family-name' id="surname" className="form-control" onChange={this.handleChange} required />
+                                                <input  value={this.state.surname} defaultValue={item.personalia.surname} type="text" autoComplete='family-name' id="surname" className="form-control" onChange={this.handleChange} required />
                                             </div>
                                             <div className="form-group">
                                                 <label >Telefon</label>
-                                                <input defaultValue={item.personalia.telNumber} type="text" autoComplete='' id="telNumber" className="form-control" onChange={this.handleChange} required />
+                                                <input  value={this.state.telNumber} defaultValue={item.personalia.telNumber} type="text" autoComplete='' id="telNumber" className="form-control" onChange={this.handleChange} required />
                                             </div>
                                             <div className="form-group">
                                                 <label >Ulica</label>

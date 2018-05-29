@@ -59,7 +59,7 @@ class AddEmployee extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://193.33.111.170:8080/admin/saveEmployee', {
+        fetch('http://193.33.111.170:8080/admin/addEmployee', {
             method: 'POST',
             body: JSON.stringify({
                 type: this.state.type,
