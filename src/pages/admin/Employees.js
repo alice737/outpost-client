@@ -66,7 +66,9 @@ class Employees extends Component {
                                                 <td> {item.personalia.name}</td>
                                                 <td> {item.personalia.surname}</td>
 
-                                                <td><Link to={`/user/carriers/${item.id}`}><button>Więcej</button></Link></td>
+                                                <td><Link to={`/user/carriers/${item.id}`}>
+                                                <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
+                                                </Link></td>
 
                                             </tr>
                                         ))}
@@ -100,7 +102,9 @@ class Employees extends Component {
                                                 <td> {item.personalia.name}</td>
                                                 <td> {item.personalia.surname}</td>
 
-                                                <td><Link to={`/user/dispatchers/${item.id}`}><button>Więcej</button></Link></td>
+                                                <td><Link to={`/user/dispatchers/${item.id}`}>
+                                                <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
+                                                </Link></td>
 
                                             </tr>
                                         ))}
@@ -135,7 +139,10 @@ class Employees extends Component {
                                                 <td> {item.personalia.name}</td>
                                                 <td> {item.personalia.surname}</td>
 
-                                                <td><Link to={`/user/administrators/${item.id}`}><button>Więcej</button></Link></td>
+                                                <td><Link to={`/user/administrators/${item.id}`}>
+                                                <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
+                                                
+                                                </Link></td>
 
                                             </tr>
                                         ))}

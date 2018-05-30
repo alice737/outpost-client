@@ -89,7 +89,7 @@ class Registration extends Component {
         })
         .then(function(response) {
             if (!response.ok) {
-                alert('Złe dane popraw może format ?')
+                alert('Wpisany format danych jest niepoprawny.')
                 throw Error(response.statusText);
                 console.log(response.statusText);
                
@@ -100,11 +100,7 @@ class Registration extends Component {
             alert('Zarejestrowany ')
             
         }).catch(function(error) {
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Congratulations!</strong> Now you're ready to do the <a href="#" class="alert-link">next shoelace</a>.
-            </div>
-               alert('Zły login lub hasło ')
+        
             console.log(error);
             
         });

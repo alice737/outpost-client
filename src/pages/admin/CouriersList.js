@@ -59,14 +59,15 @@ class CouriersList extends Component {
                                             <td> {item.personalia.name}</td>
                                             <td> {item.personalia.surname}</td>
                                            
-                                            <td><Link to={`/user/carriers/${item.id}`}><button>Więcej</button></Link></td>
+                                            <td><Link to={`/user/carriers/${item.id}`}>
+                                            <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
+                                            </Link></td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
                             <Link className="nav-link" id="item-nav" to="/addemployee">
-                            <span className="hint--right" aria-label="Dodaj nowego K
-                            uriera!"><i className="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
+                            <span className="hint--right" aria-label="Dodaj nowego Kuriera!"><i className="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
                 </Link>
                         </div>
                         </main>

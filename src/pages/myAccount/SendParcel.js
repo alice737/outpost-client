@@ -156,11 +156,19 @@ class SendParcel extends Component {
                                     <input type="text" className="form-control" id="recipientPostalCode" autoComplete='postal-code' placeholder="Kod pocztowy" onChange={this.handleChange} required />
                                 </div>
                                 <div className="form-group">
-                                    <label >Paczka ilośc</label>
-                                    <input type="text" className="form-control" id="gauge" placeholder="ile" onChange={this.handleChange} required />
+                                    <label >Gabaryt</label>
+                                   <div className="form-check">
+                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "carrier"} id="carrier" value="carrier" /> Kurier </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "dispatcher"} id="dispatcher" value="dispatcher" /> Dyspozytor </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "admin"} id="admin" value="admin" /> Administrator </label>
+                                    </div>
                                 </div>
                                 <div className="form-group">
-                                    <label >waga</label>
+                                    <label >Waga</label>
                                     <input type="text" className="form-control" id="weight" placeholder="waga" onChange={this.handleChange} required />
                                 </div>
                                 <input type="submit" className="btn btn-primary" value="Zapisz" />

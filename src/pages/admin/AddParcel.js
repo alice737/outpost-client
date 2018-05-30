@@ -31,29 +31,35 @@ class AddParcel extends Component {
     handleChange(e) {
 
         if (e.target.id === 'recipientName') {
-            this.setState({ name: e.target.value });
+            this.setState({ recipientName: e.target.value });
         } else if (e.target.id === 'recipientSurname') {
-            this.setState({ surname: e.target.value });
+            this.setState({ recipientSurname: e.target.value });
         } else if (e.target.id === 'recipientTel') {
-            this.setState({ telNumber: e.target.value });
+            this.setState({ recipientTel: e.target.value });
         } else if (e.target.id === 'recipientStreet') {
-            this.setState({ street: e.target.value });
-        } else if (e.target.id === 'recipeintStreetNumber') {
-            this.setState({ street_number: e.target.value });
+            this.setState({ recipientStreet: e.target.value });
+        } else if (e.target.id === 'recipientStreetNumber') {
+            this.setState({ recipientStreetNumber: e.target.value });
         } else if (e.target.id === 'recipientHouseNumber') {
-            this.setState({ house_number: e.target.value });
+            this.setState({ recipientHouseNumber: e.target.value });
         } else if (e.target.id === 'recipientCity') {
-            this.setState({ city: e.target.value });
+            this.setState({ recipientCity: e.target.value });
         } else if (e.target.id === 'recipientPostalCode') {
-            this.setState({ postal_code: e.target.value });
+            this.setState({ recipientPostalCode: e.target.value });
         } else if (e.target.id === 'recipientEmail') {
-            this.setState({ email: e.target.value });
+            this.setState({ recipientEmail: e.target.value });
         }
-        else if (e.target.id === 'gauge') {
-            this.setState({ email: e.target.value });
+        else if (e.target.id === 'A') {
+            this.setState({ gauge: e.target.value });
         }
         else if (e.target.id === 'weight') {
-            this.setState({ email: e.target.value });
+            this.setState({ weight: e.target.value });
+        }
+        else if (e.target.id === 'B') {
+            this.setState({ gauge: e.target.value });
+        }
+        else if (e.target.id === 'C') {
+            this.setState({ gauge: e.target.value });
         }
     }
 
@@ -65,14 +71,16 @@ class AddParcel extends Component {
             body: JSON.stringify({
                 recipientName: this.state.recipientName,
                 recipientSurname: this.state.recipientSurname,
+                recipientTel: this.state.recipientTel,
                 recipientEmail: this.state.recipientEmail,
                 recipientStreet: this.state.recipientStreet,
                 recipientStreetNumber: this.state.recipientStreetNumber,
                 recipientCity: this.state.recipientCity,
-                recipientTel: this.state.recipientTel,
-                recipientPostalCode: this.recipientPostalCode,
-                gauge: this.gauge,
-                weight: this.weight
+                recipientHouseNumber: this.state.recipientHouseNumber,        
+                recipientPostalCode: this.state.recipientPostalCode,
+                gauge: this.state.gauge,
+                weight: this.state.weight
+                //id wysyłającego 
             })
             ,
             headers: {
@@ -89,7 +97,7 @@ class AddParcel extends Component {
             return response;
         }).then(function (response) {
             console.log("ok");
-            alert('aczka dodana do bazy')
+            alert('Paczka dodana do bazy')
             ///this.setState({ isLoggedIn: "true"});
             //  console.log(this.isLoggedIn)
             // <Redirect push to='/admin'/>;
@@ -112,13 +120,13 @@ class AddParcel extends Component {
                 <div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
-                      <AdminLeftNav/>
+                        <AdminLeftNav />
                         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                                 <h1 id="nav-padd" className="h2">Wyślij Paczkę </h1>
                             </div>
                             <form className="form-signin" style={formStyle} onSubmit={this.handleSubmit}>
-                                
+
                                 <p>Podaj dane Odbiorcy.</p>
                                 <div className="form-group">
                                     <label>Imię </label>
@@ -157,12 +165,18 @@ class AddParcel extends Component {
                                     <input type="text" className="form-control" id="recipientPostalCode" autoComplete='postal-code' placeholder="Kod pocztowy" onChange={this.handleChange} required />
                                 </div>
                                 <div className="form-group">
-                                    <label >Paczka ilośc</label>
-                                    <input type="text" className="form-control" id="gauge" placeholder="ile" onChange={this.handleChange} required />
-                                </div>
-                                <div className="form-group">
-                                    <label >waga</label>
+                                    <label >Waga</label>
                                     <input type="text" className="form-control" id="weight" placeholder="waga" onChange={this.handleChange} required />
+                                </div>
+                                <label >Gabaryt</label>
+                                <div className="form-check">
+                                    <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.gauge === "A"} id="A" value="A" /> A </label>
+                                </div>
+                                <div className="form-check">
+                                    <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.gauge === "B"} id="B" value="B" />B </label>
+                                </div>
+                                <div className="form-check">
+                                    <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.gauge === "C"} id="C" value="C" /> C </label>
                                 </div>
                                 <input type="submit" className="btn btn-primary" value="Zapisz" />
                             </form>

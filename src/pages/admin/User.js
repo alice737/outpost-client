@@ -91,8 +91,14 @@ class User extends Component {
                                             <div>Miasto: {item.personalia.address.city} </div>
                                             <div>Kod pocztowy: {item.personalia.address.postal_code} </div>
                                             <div>
-                                                <Link to={`/editemployee/${this.props.match.params.type}/${item.id}`}><button> Edytuj dane tego pracownika </button></Link>
-                                                <Link to={`/deleteemployee/${this.props.match.params.type}/${item.id}`}> <button> Usuń tego pracownika </button></Link>
+                                                <Link to={`/editemployee/${this.props.match.params.type}/${item.id}`}>
+                                                <span class="hint--right" aria-label="Edytuj dane pracownika!"><i class="fa fa-edit fa-3x blue-text" aria-hidden="true"></i></span>
+                                                
+                                                </Link>
+                                                <Link to={`/deleteemployee/${this.props.match.params.type}/${item.id}`}>
+                                                <span class="hint--right" aria-label="Usuń tego pracownika z systmu!"><i class="fa fa-remove fa-3x blue-text" aria-hidden="true"></i></span>
+                                                 
+                                                 </Link>
                                             </div>
                                         </div>
                                     ))}

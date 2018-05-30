@@ -47,32 +47,40 @@ class ParcelList extends Component {
         <table className="table table-striped table-sm">
           <thead>
             <tr>
-
+            <th>Nadawca</th>
               <th>Imie Odbiorcy</th>
               <th>Nazwisko Odbiorcy</th>
-              <th>Telefon</th>
-              <th>Imie</th>
-              <th>Ulica</th>
-              <th>Numer ulicy</th>
-              <th>Numer domu</th>
-              <th>Miasto</th>
-              <th>Kod pocztowy</th>
-              <th>gabaryt</th>
-              <th>waga</th>
+     
+              <th>Telefon Odbiorcy</th>
+              <th>Email Odbiorcy</th>
+              <th>Ulica Odbiorcy</th>
+              <th>Numer ulicy Odbiorcy</th>
+              <th>Numer domu Odbiorcy</th>
+              <th>Miasto Odbiorcy</th>
+              <th>Kod pocztowy Odbiorcy</th>
+              <th>Gabaryt</th>
+              <th>Waga</th>
+              <th>Status</th>
 
             </tr>
           </thead>
           <tbody>
-            {this.state.couriers.map((item, index) => (
+            {this.state.parcels.map((item, index) => (
               <tr key={index}>
-                <td> {item}</td>
-                <td> {item.personalia.surname}</td>
-                <td> {item.personalia.telNumber}</td>
-                <td> {item.personalia.address.street}</td>
-                <td> {item.personalia.address.street_number}</td>
-                <td> {item.personalia.address.house_number}</td>
-                <td> {item.personalia.address.city}</td>
-                <td> {item.personalia.address.postal_code}</td>
+              <td> {item.waybill.sender} </td>
+                <td> {item.waybill.recipient.name}</td>
+                <td> {item.waybill.recipient.surname}</td>
+                <td> {item.waybill.recipient.telNumber}</td>
+                <td> {item.waybill.recipient.email}</td>
+                <td> {item.waybill.recipient.address.street}</td>
+                <td> {item.waybill.recipient.address.street_number}</td>
+                <td> {item.waybill.recipient.address.house_number}</td>
+                <td> {item.waybill.recipient.address.city}</td>
+                <td> {item.waybill.recipient.address.postal_code}</td>
+                <td> {item.gauge}</td>
+                <td> {item.weight}</td>
+                
+                <td> {item.status[0].status} </td>
 
               </tr>
             ))}

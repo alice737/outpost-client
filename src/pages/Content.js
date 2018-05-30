@@ -18,33 +18,22 @@ class Content extends Component{
    
    <section>
      <div className="row">
-       <div className="col-lg-4">
+
+       <div className="col-lg-6">
          <h2>Śledź paczkę </h2>
          <p>Prosty system śledzenia. Śledzenie przesyłek w Managerze Paczek (nadawca) oraz na stronie internetowej (odbiorca).
            Z łatwością prześledzisz losy swojej przesyłki na naszej stronie.</p>
          <p>
-           <Link className="btn btn-indigo" to="/sledz" role="button">Więcej &raquo;</Link>
+           <Link className="btn btn-indigo" to="/track" role="button">Więcej &raquo;</Link>
          </p>
        </div>
-     
 
-       <div className="col-lg-4">
-
-         <h2>Znajdź paczkomat</h2>
-         <p>Paczkomaty Odbiór i nadanie paczek 24 godziny na dobę, 7 dni w tygodniu. Atrakcyjna cena i błyskawiczny termin
-           dostawy.
-       
-         </p>
-         <p>
-           <a className="btn btn-indigo"  role="button">Więcej &raquo;</a>
-         </p>
-       </div>
     
-       <div className="col-lg-4">
+       <div className="col-lg-6">
          <h2>Nadaj przesyłkę </h2>
-        
+         <p>Łatwy sposob nadania przesyłki. Zarejstruj się podaj swoje dane, przejdź do swojego konta nadawaj tyle paczek ile tylko chcesz.</p>
          <p>
-           <a className="btn btn-indigo"  role="button">Więcej &raquo;</a>
+           <Link to="/login" className="btn btn-indigo"  role="button">Więcej &raquo;</Link>
          </p>
        </div>
      
@@ -76,7 +65,7 @@ class Content extends Component{
          <hr/>
          <p>OutPost pomoże Ci zaoszczędzić czas i pieniądze w innowacyjny sposób. Poznaj nasze usługi wysyłkowe i odkryj, jak
            możesz ograniczyć błędy i obniżyć ogólne koszty.</p>
-         <a href="" className="btn btn-indigo">Wyślij teraz!</a>
+         <Link to="/registration" className="btn btn-indigo">Wyślij teraz!</Link>
 
        </div>
  
@@ -92,8 +81,8 @@ class Content extends Component{
      <h2 className="mb-5 font-weight-bold text-center">
        <a name="oferta">Oferta</a>
      </h2>
-     <div className="row">
-       <div className="col-lg-6 col-md-6 mb-6">
+     {/* <div className="row">
+       <div className="col-lg-6 col-md-6 mb-6"> */}
 
          <div className="card">
 
@@ -116,12 +105,12 @@ class Content extends Component{
              <a href="" className="btn btn-indigo">Wyślij paczkę</a>
            </div>
 
-         </div>
+         {/* </div>
      
 
-       </div>
+       </div> */}
 
-   
+{/*    
        <div className="col-lg-6 col-md-6 mb-6">
 
         
@@ -146,7 +135,7 @@ class Content extends Component{
 
          </div>
        </div>
-    
+     */}
 
      </div>
    </section>

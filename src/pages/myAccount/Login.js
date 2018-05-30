@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 
 import MyAccountNav from './MyAccountNav'
-import DispatcherNav from '../dispatcher/DispatcherNav';
+import NavbarDetail from '../NavbarDetail'
 
 class Login extends Component {
     constructor(props) {
@@ -26,9 +26,9 @@ class Login extends Component {
     }
 
     handleSubmitLogin(event) {
-        alert('A name was submitted: ' + this.state.emailLogin);
+      
         event.preventDefault();
-        fetch('https://jsonplaceholder.typicode.com/posts/', {
+        fetch('', {
             method: 'POST',
             //  mode: 'no-cors', // no-cors
             body: JSON.stringify({
@@ -67,20 +67,21 @@ class Login extends Component {
     render() {
         return (
             <div>
+                  <NavbarDetail />
             <div className="container-fluid" id="container-wi">
             <div className="row">
-            <DispatcherNav/>
+         
                
-                <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                {/* <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                                 <h1 id="nav-padd" className="h2">Zaloguj się </h1>
 
-                            </div>
+                            </div> */}
            
                    
                         <div className="col">
 
-                            <form className="form-signin" onSubmit={this.handleSubmitLogin}>
+                            <form className="form-signin"  id="container100" onSubmit={this.handleSubmitLogin}>
                                 <h1> Logowanie</h1>
                                 <p>Wpisz poprawny login i hasło by zalogowac sie do stystemu.</p>
                                 <div className="form-group">
@@ -97,7 +98,7 @@ class Login extends Component {
                                 </div>
                             </form>
                         </div>
-</main>
+{/* </main> */}
                      
                     </div>
 
