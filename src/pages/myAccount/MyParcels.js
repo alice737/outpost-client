@@ -3,6 +3,14 @@ import DispatcherNav from '../dispatcher/DispatcherNav';
 import MyAccountNav from './MyAccountNav'
 
 class MyParcels extends Component {
+    constructor(){
+        super();
+        this.state={
+          res:'',
+          status:''
+        };
+      }
+    
     render() {
         return (
             <div>
@@ -23,7 +31,7 @@ class MyParcels extends Component {
                     </form>
                 </div>
                 <div class="card-body text-center">
-                    <h5> Nie znaleziono przesyłek </h5>
+                <Answer res={this.state.res} status={this.state.status} />
                 </div>
            
                 </main>
@@ -34,3 +42,25 @@ class MyParcels extends Component {
     }
 }
 export default MyParcels;
+function AnswerPositive(props) {
+    return <h1>Podana paczka znajduję się w systemie o statusie {props.status}</h1>;
+  }
+  
+  function AnswerNegative(props) {
+    return <h1>Podana paczka nie znajduje się w systemie.</h1>;
+  }
+function Answer(props) {
+    const res= props.res;
+    if (!props.res) {
+        return null;
+      }
+      
+    if (res==='1') {
+      return <AnswerPositive />;
+    }
+    else if(res==='err')
+    {
+    return <AnswerNegative/>;
+}
+ 
+}

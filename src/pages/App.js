@@ -27,6 +27,7 @@ import User from './admin/User';
 import EditAccount from './myAccount/EditAccount';
 import News from './myAccount/News';
 import ParcelList from './admin/ParcelList';
+import PrintWaybill from './myAccount/PrintWaybill';
 //import Statistic from './admin/Statistic'
 
 class App extends Component {
@@ -61,7 +62,8 @@ class App extends Component {
                     <Route path="/user/:type/:id" component={User} />
                     <Route path="/addparcel" component={AddParcel} />
                     <Route path="/parcellist" component={ParcelList} />
-                </div>
+                    <Route path="/printwaybill" component={PrintWaybill}/>                
+                    </div>
             </Router>
         );
     }

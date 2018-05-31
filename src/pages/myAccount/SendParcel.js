@@ -18,6 +18,7 @@ class SendParcel extends Component {
             recipientPostalCode: '',
             gauge: '',
             weight: ''
+           
 
         };
 
@@ -30,29 +31,35 @@ class SendParcel extends Component {
     handleChange(e) {
 
         if (e.target.id === 'recipientName') {
-            this.setState({ name: e.target.value });
+            this.setState({ recipientName: e.target.value });
         } else if (e.target.id === 'recipientSurname') {
-            this.setState({ surname: e.target.value });
+            this.setState({ recipientSurname: e.target.value });
         } else if (e.target.id === 'recipientTel') {
-            this.setState({ telNumber: e.target.value });
+            this.setState({ recipientTel: e.target.value });
         } else if (e.target.id === 'recipientStreet') {
-            this.setState({ street: e.target.value });
-        } else if (e.target.id === 'recipeintStreetNumber') {
-            this.setState({ street_number: e.target.value });
+            this.setState({ recipientStreet: e.target.value });
+        } else if (e.target.id === 'recipientStreetNumber') {
+            this.setState({ recipientStreetNumber: e.target.value });
         } else if (e.target.id === 'recipientHouseNumber') {
-            this.setState({ house_number: e.target.value });
+            this.setState({ recipientHouseNumber: e.target.value });
         } else if (e.target.id === 'recipientCity') {
-            this.setState({ city: e.target.value });
+            this.setState({ recipientCity: e.target.value });
         } else if (e.target.id === 'recipientPostalCode') {
-            this.setState({ postal_code: e.target.value });
+            this.setState({ recipientPostalCode: e.target.value });
         } else if (e.target.id === 'recipientEmail') {
-            this.setState({ email: e.target.value });
+            this.setState({ recipientEmail: e.target.value });
         }
-        else if (e.target.id === 'gauge') {
-            this.setState({ email: e.target.value });
+        else if (e.target.id === 'A') {
+            this.setState({ gauge: e.target.value });
         }
         else if (e.target.id === 'weight') {
-            this.setState({ email: e.target.value });
+            this.setState({ weight: e.target.value });
+        }
+        else if (e.target.id === 'B') {
+            this.setState({ gauge: e.target.value });
+        }
+        else if (e.target.id === 'C') {
+            this.setState({ gauge: e.target.value });
         }
     }
 
@@ -64,14 +71,15 @@ class SendParcel extends Component {
             body: JSON.stringify({
                 recipientName: this.state.recipientName,
                 recipientSurname: this.state.recipientSurname,
+                recipientTel: this.state.recipientTel,
                 recipientEmail: this.state.recipientEmail,
                 recipientStreet: this.state.recipientStreet,
                 recipientStreetNumber: this.state.recipientStreetNumber,
                 recipientCity: this.state.recipientCity,
-                recipientTel: this.state.recipientTel,
-                recipientPostalCode: this.recipientPostalCode,
-                gauge: this.gauge,
-                weight: this.weight
+                recipientHouseNumber: this.state.recipientHouseNumber,        
+                recipientPostalCode: this.state.recipientPostalCode,
+                gauge: this.state.gauge,
+                weight: this.state.weight
             })
             ,
             headers: {
@@ -155,21 +163,20 @@ class SendParcel extends Component {
                                     <label >Kod pocztowy</label>
                                     <input type="text" className="form-control" id="recipientPostalCode" autoComplete='postal-code' placeholder="Kod pocztowy" onChange={this.handleChange} required />
                                 </div>
-                                <div className="form-group">
-                                    <label >Gabaryt</label>
-                                   <div className="form-check">
-                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "carrier"} id="carrier" value="carrier" /> Kurier </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "dispatcher"} id="dispatcher" value="dispatcher" /> Dyspozytor </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "admin"} id="admin" value="admin" /> Administrator </label>
-                                    </div>
-                                </div>
+                           
                                 <div className="form-group">
                                     <label >Waga</label>
                                     <input type="text" className="form-control" id="weight" placeholder="waga" onChange={this.handleChange} required />
+                                </div>
+                                <label >Gabaryt</label>
+                                <div className="form-check">
+                                    <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.gauge === "A"} id="A" value="A" /> A </label>
+                                </div>
+                                <div className="form-check">
+                                    <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.gauge === "B"} id="B" value="B" />B </label>
+                                </div>
+                                <div className="form-check">
+                                    <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.gauge === "C"} id="C" value="C" /> C </label>
                                 </div>
                                 <input type="submit" className="btn btn-primary" value="Zapisz" />
                             </form>

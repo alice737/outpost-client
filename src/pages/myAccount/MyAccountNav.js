@@ -48,6 +48,12 @@ class MyAccoutNav extends Component{
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" id="item-nav" to="/printwaybill">
+                  <span data-feather="file"></span>
+                Drukuj list przewozowy ( )
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" id="item-nav-last"  to="/changepassword">
                   <span data-feather="file"></span>
                   Zmień hasło

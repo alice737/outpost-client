@@ -8,7 +8,9 @@ class Tracking extends Component {
     constructor(){
         super();
         this.state={
-            packNumber:''
+            packNumber:'',
+            status: '',
+            res:''
         };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
@@ -60,7 +62,7 @@ class Tracking extends Component {
                                 <input className="form-control" id="packNumber" placeholder="Wpisz numer paczki" onChange={this.handleChange} required/>
                             </div>
                             <button type="submit" className="btn btn-primary">Prześlij</button>
-
+<Answer res={this.state.res} status={this.state.status} />
                         </form>
                     </div>
                 </div>
@@ -70,3 +72,25 @@ class Tracking extends Component {
     }
 }
 export default Tracking;
+function AnswerPositive(props) {
+    return <h1>Podana paczka znajduję się w systemie o statusie {props.status}</h1>;
+  }
+  
+  function AnswerNegative(props) {
+    return <h1>Podana paczka nie znajduje się w systemie.</h1>;
+  }
+function Answer(props) {
+    const res= props.res;
+    if (!props.res) {
+        return null;
+      }
+      
+    if (res==='1') {
+      return <AnswerPositive />;
+    }
+    else if(res==='err')
+    {
+    return <AnswerNegative/>;
+}
+ 
+}

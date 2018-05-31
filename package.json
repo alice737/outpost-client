@@ -4,11 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.4.0",
+    "npm": "^6.1.0",
     "popper.js": "^1.14.3",
     "react": "^16.2.0",
+    "react-confirm-alert": "^2.0.2",
     "react-dnd": "^2.6.0",
     "react-dnd-html5-backend": "^2.6.0",
     "react-dom": "^16.2.0",
+    "react-pdf": "^3.0.5",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1"
   },

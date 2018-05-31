@@ -4,12 +4,12 @@ import AdminLeftNav from './AdminLeftNav';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: []
+            user: [],
+            id: ""
         };
     }
 
@@ -32,15 +32,7 @@ class User extends Component {
             method: 'DELETE',
             // mode: 'no-cors', // no-cors
             body: JSON.stringify({
-                type: this.state.type,
-                name: this.state.name,
-                surname: this.state.surname,
-                telNumber: this.state.telNumber,
-                street: this.state.street,
-                street_number: this.state.street_number,
-                house_number: this.state.street_number,
-                city: this.state.city,
-                postal_code: this.state.postal_code
+                id: this.props.match.params.id
             })
             ,
             headers: {
@@ -50,6 +42,7 @@ class User extends Component {
         })
 
     }
+   
 
 
 
@@ -95,15 +88,18 @@ class User extends Component {
                                                 <span class="hint--right" aria-label="Edytuj dane pracownika!"><i class="fa fa-edit fa-3x blue-text" aria-hidden="true"></i></span>
                                                 
                                                 </Link>
-                                                <Link to={`/deleteemployee/${this.props.match.params.type}/${item.id}`}>
+                                             <Link to="/">
+                                       
                                                 <span class="hint--right" aria-label="Usuń tego pracownika z systmu!"><i class="fa fa-remove fa-3x blue-text" aria-hidden="true"></i></span>
-                                                 
-                                                 </Link>
+   
+
+                                            </Link>
+   
                                             </div>
                                         </div>
                                     ))}
 
-                                    {/* <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p> */}
+
                                 </div>
 
                             </div>

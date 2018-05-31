@@ -162,8 +162,6 @@ class AddEmployee extends Component {
                                     <div className="form-check">
                                         <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "admin"} id="admin" value="admin" /> Administrator </label>
                                     </div>
-
-
                                     <div className="text-center mt-4">
                                         <input className="btn btn-primary my-3" type="submit" value="Prześlij" >
                                         </input>
