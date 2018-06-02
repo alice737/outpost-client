@@ -1,0 +1,61 @@
+.container-drag {
+    text-align: center;
+    
+  }
+  
+  .wip {
+    position: relative;
+    width: 96%;
+    height: 10%;
+ 
+    top: 10;
+    background-color: #EEEEEE;
+    border-right: 1px dotted;
+    margin: 2%;
+float: left;    
+  }
+  .droppable {
+    position: relative;
+    width: 96%;
+    height: 10%;
+    float: left;    
+    top: 10;
+    background-color: #9E9E9E;
+    border-left: 1px dotted;
+    margin: 2%;
+  }
+  .middle {
+    position: relative;
+    width: 96%;
+    height: 10%;
+    float: left;    
+    top: 10;
+    background-color: #9E9E9E;
+    border-left: 1px dotted;
+    margin: 2%;
+  }
+  
+  .header {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-color: #E0E0E0;
+    width:100%;
+  }
+  
+  .task-header {
+    display: inline-block;
+    background-color: skyblue;
+    width:100%;
+  }
+  
+  
+  
+  .draggable {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin: 5px ;
+    float: left;
+    line-height: 5em;
+  }

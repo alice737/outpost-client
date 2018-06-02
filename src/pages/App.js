@@ -28,14 +28,16 @@ import EditAccount from './myAccount/EditAccount';
 import News from './myAccount/News';
 import ParcelList from './admin/ParcelList';
 import PrintWaybill from './myAccount/PrintWaybill';
+import DragParcel from './parcel/DragParcel';
 //import Statistic from './admin/Statistic'
+// import { requireAuth } from './utils/AuthService';
 
 class App extends Component {
     render() {
         return (
 
-            <Router>
-                <div>
+            <Router >
+               <div>
                     <Route exact path="/" component={Home} />
                     <Route path="/prices" component={Prices} />
                     <Route path="/registration" component={Registration} />
@@ -63,7 +65,8 @@ class App extends Component {
                     <Route path="/addparcel" component={AddParcel} />
                     <Route path="/parcellist" component={ParcelList} />
                     <Route path="/printwaybill" component={PrintWaybill}/>                
-                    </div>
+                <Route path="/drag" component={DragParcel}/>
+                   </div>
             </Router>
         );
     }
