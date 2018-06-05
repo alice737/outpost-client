@@ -18,7 +18,7 @@ class MyAccoutNav extends Component{
           <div className="sidebar-sticky">
             <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link " id="item-nav" to="/usernews"  >
+                <Link className="nav-link " id="item-nav" to="/myaccount"  >
                   <span data-feather="home"></span>
                   Aktualności <span className="sr-only">(current)</span>
                 </Link>
@@ -51,6 +51,18 @@ class MyAccoutNav extends Component{
                 <Link className="nav-link" id="item-nav" to="/printwaybill">
                   <span data-feather="file"></span>
                 Drukuj list przewozowy ( )
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" id="item-nav" to="/myaccount">
+                  <span data-feather="file"></span>
+               Lista zdefiniowanych odbiorcow
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" id="item-nav" to="/parcelhistory">
+                  <span data-feather="file"></span>
+               Historia wysłanych paczek
                 </Link>
               </li>
               <li className="nav-item">

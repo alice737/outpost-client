@@ -6,10 +6,39 @@ class MyParcels extends Component {
     constructor(){
         super();
         this.state={
-          res:'',
-          status:''
+            packNumber:'',
+            status: '',
+            res:''
         };
-      }
+        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleChange=this.handleChange.bind(this);
+    }
+    handleChange(e){
+        if (e.target.id === 'packNumber') {
+            this.setState({ packNumber: e.target.value });
+        } 
+
+    }
+    handleSubmit(event){
+        // alert('A name was submitted: ' + this.state.packNumber);
+        this.setState({ res: '1'});
+        event.preventDefault();
+        fetch('https://jsonplaceholder.typicode.com/posts/', {
+            method: 'POST',
+            //  mode: 'no-cors', // no-cors
+            body: JSON.stringify({
+                packNumber: this.state.packNumber
+              
+            })
+            ,
+            headers: {
+                'Accept': 'application/json',
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(response => response.json())
+            .then(json => console.log(json))
+    }
     
     render() {
         return (
@@ -24,16 +53,20 @@ class MyParcels extends Component {
                                 <h1 id="nav-padd" className="h2">Moje przesyłki</h1>
 
                             </div>
-                <div class="card-body text-center">
-                    <form class="form-inline active-cyan-3 active-cyan-4">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" />
-                    </form>
+                            <div className="container">
+                    <h2 className="font-weight-bold text-center">Śledzenie przesyłki</h2>
+                    <h4 className="text-center"> Wpisz numer przesyłki.</h4>
+                    <div className="row">
+                        <form className="form-signin" onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <input className="form-control" id="packNumber" placeholder="Wpisz numer paczki" onChange={this.handleChange} required/>
+                            </div>
+                            <button type="submit" className="btn btn-primary">Prześlij</button>
+                           
+                        </form>
+                        <Answer res={this.state.res} status={this.state.status} />
+                    </div>
                 </div>
-                <div class="card-body text-center">
-                <Answer res={this.state.res} status={this.state.status} />
-                </div>
-           
                 </main>
                     </div>
                 </div>

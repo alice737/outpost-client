@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import { Link } from 'react-router-dom';
 
 
 class Tracking extends Component {
@@ -22,7 +21,8 @@ class Tracking extends Component {
 
     }
     handleSubmit(event){
-        alert('A name was submitted: ' + this.state.packNumber);
+        // alert('A name was submitted: ' + this.state.packNumber);
+        this.setState({ res: '1'});
         event.preventDefault();
         fetch('https://jsonplaceholder.typicode.com/posts/', {
             method: 'POST',
@@ -62,8 +62,9 @@ class Tracking extends Component {
                                 <input className="form-control" id="packNumber" placeholder="Wpisz numer paczki" onChange={this.handleChange} required/>
                             </div>
                             <button type="submit" className="btn btn-primary">Prześlij</button>
-<Answer res={this.state.res} status={this.state.status} />
+                           
                         </form>
+                        <Answer res={this.state.res} status={this.state.status} />
                     </div>
                 </div>
                 <Footer />

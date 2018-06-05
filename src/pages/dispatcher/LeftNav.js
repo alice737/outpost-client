@@ -48,7 +48,7 @@ class LeftNav extends Component{
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav-last"  to="/dispatcher">
+                <Link className="nav-link" id="item-nav-last"  to="/createplan">
                   <span data-feather="file"></span>
                   Utworz plan
                 </Link>

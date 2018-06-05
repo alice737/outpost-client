@@ -27,7 +27,8 @@ import * as jsPDF from 'jspdf'
         width: '210mm',
         minHeight: '297mm',
         marginLeft: 'auto',
-        marginRight: 'auto'
+        marginRight: 'auto',
+        backgroundColor: 'white'
 
     };
     let toLeft = {
@@ -70,6 +71,11 @@ paddingTop:'30px'
                                 </ul>
              </main>   
       </div>
+      <div>
+      <h4 className="mb-5  text-center">
+       <p>Przed wydrukiem sprawdź wszystkie dane </p>
+     </h4>
+       </div>
     </div>);
   }
 }

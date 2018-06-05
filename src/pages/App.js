@@ -22,16 +22,15 @@ import MyParcels from './myAccount/MyParcels';
 import SendParcel from './myAccount/SendParcel';
 import ChangePassword from './myAccount/ChangePassword';
 import AddParcel from './admin/AddParcel'
-
 import User from './admin/User';
 import EditAccount from './myAccount/EditAccount';
-import News from './myAccount/News';
 import ParcelList from './admin/ParcelList';
 import PrintWaybill from './myAccount/PrintWaybill';
 import DragParcel from './parcel/DragParcel';
+import ParcelHistory from './myAccount/ParcelHistory'
 //import Statistic from './admin/Statistic'
 // import { requireAuth } from './utils/AuthService';
-
+import CreatePlan from './dispatcher/CreatePlan'
 class App extends Component {
     render() {
         return (
@@ -53,7 +52,7 @@ class App extends Component {
                     <Route path="/dispatcher" component={Dispatcher} />
                     <Route path="/plancarriers" component={Couriers} />
                     <Route path="/planparcels" component={Parcels} />
-                    <Route path="/usernews" component={News}/>
+                   
                     <Route path="/admin" component={Admin} />
                     <Route path="/addemployee" component={AddEmployee} />
                     <Route path="/administrators" component={Administrators} />
@@ -66,6 +65,10 @@ class App extends Component {
                     <Route path="/parcellist" component={ParcelList} />
                     <Route path="/printwaybill" component={PrintWaybill}/>                
                 <Route path="/drag" component={DragParcel}/>
+                <Route path="/parcelhistory" component={ParcelHistory}/>
+
+                <Route path="/createplan" component={CreatePlan}/>
+
                    </div>
             </Router>
         );

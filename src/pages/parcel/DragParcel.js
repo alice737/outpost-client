@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Drag.css';
+import { Link } from 'react-router-dom';
 class DragParcel extends Component {
 
     state = {
@@ -93,6 +94,7 @@ class DragParcel extends Component {
                 <span className="task-header">KURIER </span>
                 {tasks.complete}
             </div>
+            <Link to="/dispatcher"> <input type="submit" className="btn btn-primary" value="Zapisz zmiany" /></Link>
         </div>);
     }
 

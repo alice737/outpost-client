@@ -47,96 +47,42 @@ class Content extends Component{
        <a name="onas">O nas</a>
      </h2>
      <div className="row">
-
-    
-       <div className="col-md-7 mb-4">
-
-        
+       <div className="col-md-7 mb-4">       
          <div className="view overlay z-depth-1-half">
            <img src="http://www.businessbib.net/wp-content/uploads/2016/10/3-4.jpg" className="img-fluid" alt=""/>
            <div className="mask rgba-white-light"></div>
          </div>
-
        </div>
-     
        <div className="col-md-5 mb-4">
-
          <h2>OutPost</h2>
          <hr/>
          <p>OutPost pomoże Ci zaoszczędzić czas i pieniądze w innowacyjny sposób. Poznaj nasze usługi wysyłkowe i odkryj, jak
            możesz ograniczyć błędy i obniżyć ogólne koszty.</p>
          <Link to="/registration" className="btn btn-indigo">Wyślij teraz!</Link>
-
        </div>
- 
-
      </div>
- 
    </section>
    
    <hr className="my-5"/>
 
    <section>
-  
-     <h2 className="mb-5 font-weight-bold text-center">
-       <a name="oferta">Oferta</a>
+   <h2 className="mb-5 font-weight-bold text-center">
+   <a name="oferta">Oferta</a>
      </h2>
-     {/* <div className="row">
-       <div className="col-lg-6 col-md-6 mb-6"> */}
-
-         <div className="card">
-
-          
-           <div className="view overlay">
-             <img src="https://static.wowcher.co.uk/images/deal/294953/84431-iphone-promo.jpg" className="img-fluid" alt="" />
-             <a >
-               <div className="mask rgba-white-slight"></div>
-             </a>
-           </div>
-
-           <div className="card-body">
-       
-          
-        
-             <h4 className="card-title">Kurier</h4>
-         
-             <p className="card-text">Najszybsza dostawa bezpośrednio do drzwi odbiorcy. Tylko w OutPost paczki kurierskie możesz nadać u kuriera,
-               w punkcie OutPost .</p>
-             <a href="" className="btn btn-indigo">Wyślij paczkę</a>
-           </div>
-
-         {/* </div>
-     
-
-       </div> */}
-
-{/*    
-       <div className="col-lg-6 col-md-6 mb-6">
-
-        
-         <div className="card">
-
-           
-           <div className="view overlay">
-             <img src="http://www.baoqingsmart.com/e/upload/s6/fck/image/2015/12/22/2252203665.png" className="img-fluid" alt=""/>
-             <a >
-               <div className="mask rgba-white-slight"></div>
-             </a>
-           </div>
-
-           
-           <div className="card-body">
-           
-             <h4 className="card-title">Paczkomaty</h4>
-         
-             <p className="card-text">Odbiór i nadanie paczek 24 godziny na dobę, 7 dni w tygodniu. Atrakcyjna cena i błyskawiczny termin dostawy.</p>
-             <a  className="btn btn-indigo">Wyślij paczkę</a>
-           </div>
-
+     <div className="row">
+       <div className="col-md-7 mb-4">       
+         <div className="view overlay z-depth-1-half">
+           <img src="https://static.wowcher.co.uk/images/deal/294953/84431-iphone-promo.jpg" className="img-fluid" alt=""/>
+           <div className="mask rgba-white-light"></div>
          </div>
        </div>
-     */}
-
+       <div className="col-md-5 mb-4">
+         <h2>Kurier</h2>
+         <hr/>
+         <p>Najszybsza dostawa bezpośrednio do drzwi odbiorcy. Tylko w OutPost paczki kurierskie możesz nadać u kuriera,
+               w punkcie OutPost .</p>
+         <Link to="/registration" className="btn btn-indigo">Wyślij teraz!</Link>
+       </div>
      </div>
    </section>
    
@@ -230,7 +176,11 @@ class Content extends Component{
       
 
          
-         <div id="map-container" className="z-depth-1-half map-container mb-5" ></div>
+         <div id="map-container" className="z-depth-1-half map-container mb-5" >
+         <img src="https://pic.conadrogach.pl/zdjecia/google-map/malopolskie-krakow.500.png" className="img-fluid" alt=""/>
+         
+         
+         </div>
 
        </div>
     
