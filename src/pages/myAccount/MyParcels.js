@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import DispatcherNav from '../dispatcher/DispatcherNav';
 import MyAccountNav from './MyAccountNav'
-
+import axios from 'axios';
 class MyParcels extends Component {
     constructor(){
         super();
         this.state={
             packNumber:'',
-            status: '',
-            res:''
+           
+            res:'',
+            track:[
+                
+            ]
+            
         };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
+       
     }
     handleChange(e){
         if (e.target.id === 'packNumber') {
@@ -20,26 +25,28 @@ class MyParcels extends Component {
 
     }
     handleSubmit(event){
-        // alert('A name was submitted: ' + this.state.packNumber);
-        this.setState({ res: '1'});
         event.preventDefault();
-        fetch('https://jsonplaceholder.typicode.com/posts/', {
-            method: 'POST',
-            //  mode: 'no-cors', // no-cors
-            body: JSON.stringify({
-                packNumber: this.state.packNumber
-              
-            })
-            ,
-            headers: {
-                'Accept': 'application/json',
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-            .then(response => response.json())
-            .then(json => console.log(json))
+        let url='http://193.33.111.170:8080/guest/checkParcelStatus/'+this.state.packNumber
+    axios.get(url)
+            .then(response => {
+                this.setState({
+                    track: response.data,
+                  
+                });
+                    if(this.state.track.length===0){
+                        this.setState({ res: 'err'});
+                   
+                    }else{
+                        this.setState({ res: '1'});
+                    }
+                  
+                }).catch((err) => {
+                //   
+                this.setState({ res: 'err'});
+               
+            
+            } );
     }
-    
     render() {
         return (
             <div>
@@ -64,7 +71,7 @@ class MyParcels extends Component {
                             <button type="submit" className="btn btn-primary">Prześlij</button>
                            
                         </form>
-                        <Answer res={this.state.res} status={this.state.status} />
+                        <Answer res={this.state.res} packNumber={this.state.packNumber} />
                     </div>
                 </div>
                 </main>
@@ -75,10 +82,76 @@ class MyParcels extends Component {
     }
 }
 export default MyParcels;
-function AnswerPositive(props) {
-    return <h1>Podana paczka znajduję się w systemie o statusie {props.status}</h1>;
+
+export class AnswerPositive extends React.Component {
+    constructor(props){
+        super();
+        this.state={
+            packNumber: props.packNumber,
+            track:[
+                {},
+                {}
+            ]
+            
+        };
+        this.fun=this.fun.bind(this);
+    }
+
+    componentDidMount(){
+            // alert('A name was submitted: ' + this.state.packNumber);
+            
+          
+            let url='http://193.33.111.170:8080/guest/checkParcelStatus/'+this.state.packNumber
+        axios.get(url)
+                .then(response => {
+                    this.setState({
+                        track: response.data,      
+                    });
+                        console.log(response);
+                    }).catch((err) => {
+                
+                } );
+        }
+        fun(data){
+            var myDate = new Date(data *1000);
+            return  myDate.toLocaleString()
+        }
+        render(){
+         
+           
+        return (
+            <div className="table-responsive">
+      
+            <table className="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>Numer paczki </th>
+                        <th>Data </th>
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+               
+                    {this.state.track.map((item, index) => (
+                        <tr key={index}>
+                            <td> {item.id}</td>
+                            <td> {this.fun(item.timestamp)}</td>
+                            <td> {item.status}</td>
+                    
+                        </tr>
+                    ))}
+            
+                </tbody>
+            </table>
+           
+        </div>
+       
+    );
+        }
   }
-  
+
+
   function AnswerNegative(props) {
     return <h1>Podana paczka nie znajduje się w systemie.</h1>;
   }
@@ -89,7 +162,8 @@ function Answer(props) {
       }
       
     if (res==='1') {
-      return <AnswerPositive />;
+        
+      return <AnswerPositive packNumber={props.packNumber} />;
     }
     else if(res==='err')
     {

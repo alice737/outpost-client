@@ -29,12 +29,10 @@ class User extends Component {
         //on delete
         event.preventDefault();
         fetch('http://193.33.111.170:8080/admin/deleteEmployee/', {
-            method: 'POST',
+            method: 'DELETE',
             // mode: 'no-cors', // no-cors
             body: JSON.stringify({
-                id: this.props.match.params.id,
-                type: this.props.match.params.type.substr(0, this.props.match.params.type.length - 1)
-               
+                id: this.props.match.params.id
             })
             ,
             headers: {

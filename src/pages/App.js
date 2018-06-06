@@ -31,12 +31,17 @@ import ParcelHistory from './myAccount/ParcelHistory'
 //import Statistic from './admin/Statistic'
 // import { requireAuth } from './utils/AuthService';
 import CreatePlan from './dispatcher/CreatePlan'
+import ChangeStatus from './admin/ChangeStatus';
+import Statistic from './admin/Statistic';
+import Carrier from './carrier/Carrier';
+import CarrierChangeStatus from './carrier/CarrierChangeStatus';
+import ShiftParcels from './carrier/ShiftParcels';
 class App extends Component {
     render() {
         return (
 
             <Router >
-               <div>
+                <div>
                     <Route exact path="/" component={Home} />
                     <Route path="/prices" component={Prices} />
                     <Route path="/registration" component={Registration} />
@@ -52,7 +57,6 @@ class App extends Component {
                     <Route path="/dispatcher" component={Dispatcher} />
                     <Route path="/plancarriers" component={Couriers} />
                     <Route path="/planparcels" component={Parcels} />
-                   
                     <Route path="/admin" component={Admin} />
                     <Route path="/addemployee" component={AddEmployee} />
                     <Route path="/administrators" component={Administrators} />
@@ -63,13 +67,16 @@ class App extends Component {
                     <Route path="/user/:type/:id" component={User} />
                     <Route path="/addparcel" component={AddParcel} />
                     <Route path="/parcellist" component={ParcelList} />
-                    <Route path="/printwaybill" component={PrintWaybill}/>                
-                <Route path="/drag" component={DragParcel}/>
-                <Route path="/parcelhistory" component={ParcelHistory}/>
-
-                <Route path="/createplan" component={CreatePlan}/>
-
-                   </div>
+                    <Route path="/printwaybill" component={PrintWaybill} />
+                    <Route path="/drag" component={DragParcel} />
+                    <Route path="/parcelhistory" component={ParcelHistory} />
+                    <Route path="/createplan" component={CreatePlan} />
+                    <Route path="/changestatus" component={ChangeStatus} />
+                    <Route path="/statistic"component={Statistic}/>
+                    <Route path="/carrier"component={Carrier}/>
+                    <Route path="/carrierchangestatus"component={CarrierChangeStatus}/>
+                    <Route path="/shiftparcels" component={ShiftParcels}/>
+                </div>
             </Router>
         );
     }

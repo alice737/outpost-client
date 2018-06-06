@@ -176,7 +176,7 @@ class Content extends Component{
       
 
          
-         <div id="map-container" className="z-depth-1-half map-container mb-5" >
+         <div id="map-container" className="z-depth-1-half map-container mb-5" style={{width:500}} >
          <img src="https://pic.conadrogach.pl/zdjecia/google-map/malopolskie-krakow.500.png" className="img-fluid" alt=""/>
          
          

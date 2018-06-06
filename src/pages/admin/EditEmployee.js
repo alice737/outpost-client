@@ -43,12 +43,14 @@ class EditEmployee extends Component {
     handleSubmit(event) {
         //on update 
         event.preventDefault();
-        fetch('http://193.33.111.170:8080/admin/editEmployee', {
+        let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.id+ '/editEmployee';
+        fetch(url, {
             method: 'POST',
             // mode: 'no-cors', // no-cors
             body: JSON.stringify({
-                id: this.props.match.params.id,
-                data: {
+                // id: this.props.match.params.id,
+                // data: {
+                    type: this.props.match.params.type.substr(0, this.props.match.params.type.length - 1),
                 name: this.name.value,
                 surname: this.surname.value,
                 telNumber: this.telNumber.value,
@@ -57,7 +59,7 @@ class EditEmployee extends Component {
                 street_number: this.street_number.value,
                 house_number: this.house_number.value,
                 city: this.city.value,
-                postal_code: this.postal_code.value}
+                postal_code: this.postal_code.value
             })
             ,
             headers: {

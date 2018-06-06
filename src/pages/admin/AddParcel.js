@@ -69,6 +69,7 @@ class AddParcel extends Component {
         fetch('http://193.33.111.170:8080/admin/addParcel', {
             method: 'POST',
             body: JSON.stringify({
+           
                 recipientName: this.state.recipientName,
                 recipientSurname: this.state.recipientSurname,
                 recipientTel: this.state.recipientTel,
@@ -80,7 +81,7 @@ class AddParcel extends Component {
                 recipientPostalCode: this.state.recipientPostalCode,
                 gauge: this.state.gauge,
                 weight: this.state.weight
-                //id wysyłającego 
+               
             })
             ,
             headers: {

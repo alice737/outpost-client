@@ -61,17 +61,17 @@ class AdminLeftNav extends Component{
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="/admin">
+                <Link className="nav-link" id="item-nav"  to="/statistic">
                   <span data-feather="file"></span>
                  Statystyki
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link" id="item-nav"  to="/admin">
+              <li className="nav-item">
+                <Link className="nav-link" id="item-nav"  to="/changestatus">
                   <span data-feather="file"></span>
-                 Ustawienia
+                 Zmień status
                 </Link>
-              </li> */}
+              </li>
             
             
             
