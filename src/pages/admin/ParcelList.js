@@ -61,6 +61,7 @@ class ParcelList extends Component {
               <th>Gabaryt</th>
               <th>Waga</th>
               <th>Status</th>
+              <th>Numer Paczki</th>
 
             </tr>
           </thead>
@@ -80,7 +81,9 @@ class ParcelList extends Component {
                 <td> {item.gauge}</td>
                 <td> {item.weight}</td>
                 
-                <td> {item.status[0].status} </td>
+                
+                <td> {item.status[item.status.length-1].status} </td>
+                <td> {item.id}</td>
 
               </tr>
             ))}

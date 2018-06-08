@@ -36,23 +36,24 @@ class LeftNav extends Component{
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/dispatcher">
+                <Link className="nav-link" id="item-nav" to="/shifts">
                   <span data-feather="file"></span>
-                  Zmiany
+                 Utworzone Zmiany
                 </Link>
               </li>
+          
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/dispatcher">
+                <Link className="nav-link" id="item-nav-last"  to="/createshift">
                   <span data-feather="file"></span>
-                  Regiony
+              Utworz zmiany
                 </Link>
-              </li>
+              </li>  
               <li className="nav-item">
-                <Link className="nav-link" id="item-nav-last"  to="/createplan">
+                <Link className="nav-link" id="item-nav-last"  to="/drag">
                   <span data-feather="file"></span>
-                  Utworz plan
+              Paczki do kurierow
                 </Link>
-              </li>
+              </li>  
             </ul>
           </div>
      </nav>

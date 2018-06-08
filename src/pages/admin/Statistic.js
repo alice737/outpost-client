@@ -7,21 +7,40 @@ class Statistic extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            parcels: []
+            parcels: [],
+            couriers: [],
+            dispatchers: [],
+            administrators: []
+          
         };
     }
 
+ 
     componentDidMount() {
         axios.get('http://193.33.111.170:8080/admin/getParcels')
+        .then(response => {
+            this.setState({
+                parcels: response.data
+            });
+
+            console.log(response);
+        }).catch((err) => console.log(err))
+
+
+        axios.get('http://193.33.111.170:8080/admin/all')
             .then(response => {
                 this.setState({
-                    parcels: response.data
+                    couriers: response.data.carriers,
+                    dispatchers: response.data.dispatchers,
+                    administrators: response.data.administrators
+                   
                 });
 
                 console.log(response);
             }).catch((err) => console.log(err))
 
     }
+
 
     render() {
         let styl = {
@@ -48,6 +67,10 @@ class Statistic extends Component {
                             <div class="card" style={styl}>
                                 <ul class="list-group list-group-flush" style={toLeft} >
                                     <li class="list-group-item"><div style={toLeft}>Ilośc zarejestrowanych paczek w systemie</div><div style={toRight}>{this.state.parcels.length} </div> </li>
+                                    <li class="list-group-item"><div style={toLeft}>Wszyscy pracownicy</div><div style={toRight}>{this.state.couriers.length+this.state.dispatchers.length+this.state.administrators.length} </div> </li>
+                                    <li class="list-group-item"><div style={toLeft}>Kurierzy</div><div style={toRight}>{this.state.couriers.length} </div> </li>
+                                    <li class="list-group-item"><div style={toLeft}>Dyspozytorzy</div><div style={toRight}>{this.state.dispatchers.length} </div> </li>
+                                    <li class="list-group-item"><div style={toLeft}>Adminitratorzy</div><div style={toRight}>{this.state.administrators.length} </div> </li>
                                 </ul>
                             </div>
                         </main>

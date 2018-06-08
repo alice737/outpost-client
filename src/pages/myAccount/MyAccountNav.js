@@ -53,12 +53,7 @@ class MyAccoutNav extends Component{
                 Drukuj list przewozowy ( )
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" id="item-nav" to="/myaccount">
-                  <span data-feather="file"></span>
-               Lista zdefiniowanych odbiorcow
-                </Link>
-              </li>
+             
               <li className="nav-item">
                 <Link className="nav-link" id="item-nav" to="/parcelhistory">
                   <span data-feather="file"></span>

@@ -20,7 +20,7 @@ float: left;
     height: 10%;
     float: left;    
     top: 10;
-    background-color: #9E9E9E;
+    background-color: #EEEEEE;
     border-left: 1px dotted;
     margin: 2%;
   }
@@ -30,31 +30,32 @@ float: left;
     height: 10%;
     float: left;    
     top: 10;
-    background-color: #9E9E9E;
+    background-color: #EEEEEE;
     border-left: 1px dotted;
     margin: 2%;
   }
   
   .header {
+    margin-top:40px;
     display: inline-block;
-    margin: 0;
+  
     padding: 0;
-    background-color: #E0E0E0;
+    /* background-color: #E0E0E0; */
     width:100%;
   }
   
   .task-header {
     display: inline-block;
-    background-color: skyblue;
+    background-color:#2f7cf9;
     width:100%;
   }
   
   
   
   .draggable {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+    width: 150px;
+    height: 50px;
+    background-color: #91a3c1;
     margin: 5px ;
     float: left;
     line-height: 5em;

@@ -88,15 +88,18 @@ class SendParcel extends Component {
             }
         }).then(function (response) {
             if (!response.ok) {
-                alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
+                alert('Sprawdź czy dane są poprawne, sproboj jeszcze raz')
                 throw Error(response.statusText);
                 // console.log(response.statusText);
 
             }
             return response;
         }).then(function (response) {
+            // this.setState();
+            // this.forceUpdate();
             console.log("ok");
-            alert('aczka dodana do bazy')
+            alert('Paczka dodana do bazy')
+          
             ///this.setState({ isLoggedIn: "true"});
             //  console.log(this.isLoggedIn)
             // <Redirect push to='/admin'/>;

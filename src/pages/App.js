@@ -36,6 +36,10 @@ import Statistic from './admin/Statistic';
 import Carrier from './carrier/Carrier';
 import CarrierChangeStatus from './carrier/CarrierChangeStatus';
 import ShiftParcels from './carrier/ShiftParcels';
+import CouriersToShift from './parcel/CouriersToShift'
+import Shifts from './dispatcher/Shifts';
+import CreateShift from './dispatcher/CreateShift';
+import CarriersInShift from './dispatcher/CarriersInShift'
 class App extends Component {
     render() {
         return (
@@ -76,6 +80,10 @@ class App extends Component {
                     <Route path="/carrier"component={Carrier}/>
                     <Route path="/carrierchangestatus"component={CarrierChangeStatus}/>
                     <Route path="/shiftparcels" component={ShiftParcels}/>
+                    <Route path="/courierToShift" component={CouriersToShift}/>
+                    <Route path="/shifts" component={Shifts}/>
+                    <Route path="/createshift" component={CreateShift}/>
+                   <Route path="/courierInShift/:id" component={CarriersInShift}/>
                 </div>
             </Router>
         );
