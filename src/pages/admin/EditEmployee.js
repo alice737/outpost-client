@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import DispatcherNav from '../dispatcher/DispatcherNav';
 import AdminLeftNav from './AdminLeftNav';
 import axios from 'axios';
-
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class EditEmployee extends Component {
 
     constructor(props) {
@@ -44,12 +48,8 @@ class EditEmployee extends Component {
         //on update 
         event.preventDefault();
         let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.id+ '/editEmployee';
-        fetch(url, {
-            method: 'POST',
-            // mode: 'no-cors', // no-cors
-            body: JSON.stringify({
-                // id: this.props.match.params.id,
-                // data: {
+        axios.post(url, {
+         
                     type: this.props.match.params.type.substr(0, this.props.match.params.type.length - 1),
                 name: this.name.value,
                 surname: this.surname.value,
@@ -59,13 +59,7 @@ class EditEmployee extends Component {
                 street_number: this.street_number.value,
                 house_number: this.house_number.value,
                 city: this.city.value,
-                postal_code: this.postal_code.value
-            })
-            ,
-            headers: {
-                'Accept': 'application/json',
-                "Content-type": "application/json; charset=UTF-8"
-            }
+                postal_code: this.postal_code.value   
         }).then(function (response) {
             if (!response.ok) {
                 alert('Sprawdź czy dane są poprawne.')
@@ -85,11 +79,30 @@ class EditEmployee extends Component {
 
 
     }
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_ADMIN') {
+                return role;
+            } else {
+                return !token && token.length > 10;
 
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
     render() {
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-                <div className="container-fluid" id="container-wi">
+                   {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <AdminLeftNav />
@@ -153,7 +166,8 @@ class EditEmployee extends Component {
 
                         </main>
                     </div>
-                </div>
+                </div>):
+                 (<Redirect to={{ pathname: '/login' }} />)}
             </div>
         );
 

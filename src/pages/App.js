@@ -28,18 +28,24 @@ import ParcelList from './admin/ParcelList';
 import PrintWaybill from './myAccount/PrintWaybill';
 import DragParcel from './parcel/DragParcel';
 import ParcelHistory from './myAccount/ParcelHistory'
-//import Statistic from './admin/Statistic'
-// import { requireAuth } from './utils/AuthService';
-import CreatePlan from './dispatcher/CreatePlan'
+
+
 import ChangeStatus from './admin/ChangeStatus';
 import Statistic from './admin/Statistic';
 import Carrier from './carrier/Carrier';
 import CarrierChangeStatus from './carrier/CarrierChangeStatus';
-import ShiftParcels from './carrier/ShiftParcels';
+
 import CouriersToShift from './parcel/CouriersToShift'
 import Shifts from './dispatcher/Shifts';
 import CreateShift from './dispatcher/CreateShift';
 import CarriersInShift from './dispatcher/CarriersInShift'
+import MyData from './myAccount/MyData'
+import MyShifts from './carrier/MyShifts';
+import ParcelsInShift from './carrier/ParcelsInShift';
+import ParcelDetails from './parcel/ParcelDetails';
+import DoneShifts from './carrier/DoneShifts';
+import InProgressShifts from './carrier/InProgressShifts';
+import CreatedShifts from './carrier/CreatedShifts';
 class App extends Component {
     render() {
         return (
@@ -71,19 +77,22 @@ class App extends Component {
                     <Route path="/user/:type/:id" component={User} />
                     <Route path="/addparcel" component={AddParcel} />
                     <Route path="/parcellist" component={ParcelList} />
-                    <Route path="/printwaybill" component={PrintWaybill} />
-                    <Route path="/drag" component={DragParcel} />
+                    <Route path="/printwaybill/:id" component={PrintWaybill} />
                     <Route path="/parcelhistory" component={ParcelHistory} />
-                    <Route path="/createplan" component={CreatePlan} />
                     <Route path="/changestatus" component={ChangeStatus} />
                     <Route path="/statistic"component={Statistic}/>
                     <Route path="/carrier"component={Carrier}/>
                     <Route path="/carrierchangestatus"component={CarrierChangeStatus}/>
-                    <Route path="/shiftparcels" component={ShiftParcels}/>
-                    <Route path="/courierToShift" component={CouriersToShift}/>
+                    <Route path="/parcelsInShift/:id" component={ParcelsInShift}/>
                     <Route path="/shifts" component={Shifts}/>
                     <Route path="/createshift" component={CreateShift}/>
                    <Route path="/courierInShift/:id" component={CarriersInShift}/>
+                   <Route path="/mydata" component={MyData}/>
+                   <Route path="/myshifts" component={MyShifts}/>
+                   <Route path="/parceldetails/:id" component={ParcelDetails}/>
+                   <Route path="/doneshifts" component={DoneShifts}/>
+                   <Route path="/shcreated" component={CreatedShifts}/>
+                   <Route path="/inprogressshifts" component={InProgressShifts}/>
                 </div>
             </Router>
         );

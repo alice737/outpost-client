@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import DispatcherNav from '../dispatcher/DispatcherNav';
-
+import { Redirect } from 'react-router'
+import decode from 'jwt-decode';
 import AdminLeftNav from './AdminLeftNav';
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class AddParcel extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +29,24 @@ class AddParcel extends Component {
 
     }
 
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_ADMIN') {
+                return role;
+            } else {
+                return !token && token.length > 10;
 
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
     handleChange(e) {
 
         if (e.target.id === 'recipientName') {
@@ -66,10 +85,8 @@ class AddParcel extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://193.33.111.170:8080/admin/addParcel', {
-            method: 'POST',
-            body: JSON.stringify({
-           
+        axios.post('http://193.33.111.170:8080/admin/addParcel', {
+         
                 recipientName: this.state.recipientName,
                 recipientSurname: this.state.recipientSurname,
                 recipientTel: this.state.recipientTel,
@@ -82,20 +99,8 @@ class AddParcel extends Component {
                 gauge: this.state.gauge,
                 weight: this.state.weight
                
-            })
-            ,
-            headers: {
-                'Accept': 'application/json',
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        }).then(function (response) {
-            if (!response.ok) {
-                alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
-                throw Error(response.statusText);
-                // console.log(response.statusText);
-
-            }
-            return response;
+        
+       
         }).then(function (response) {
             console.log("ok");
             alert('Paczka dodana do bazy')
@@ -104,7 +109,7 @@ class AddParcel extends Component {
             // <Redirect push to='/admin'/>;
 
         }).catch(function (error) {
-
+            alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
             console.log(error);
 
         });
@@ -115,10 +120,11 @@ class AddParcel extends Component {
         var formStyle = {
             maxWidth: 650
         };
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-
-                <div className="container-fluid" id="container-wi">
+ {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <AdminLeftNav />
@@ -183,7 +189,8 @@ class AddParcel extends Component {
                             </form>
                         </main>
                     </div>
-                </div>
+                </div>):
+                (<Redirect to={{ pathname: '/login' }} />)}
             </div>
         );
     }

@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
 import DispatcherNav from '../dispatcher/DispatcherNav';
 import MyAccountNav from './MyAccountNav'
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
 class MyPayments extends Component {
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_CICHOPEK') {
+                return role;
+            } else {
+                return !token && token.length > 10;
+
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
     render() {
         let styl = {
             width: 600,
@@ -14,9 +34,11 @@ class MyPayments extends Component {
         let toRight = {
             textAlign: 'right'
         };
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-                <div className="container-fluid" id="container-wi">
+                 {(isArleadyAuthenticated === 'ROLE_CICHOPEK') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <MyAccountNav />
@@ -36,7 +58,8 @@ class MyPayments extends Component {
                             </div>
                         </main>
                     </div>
-                </div>
+                </div>):
+                (<Redirect to={{ pathname: '/login' }} />)}
             </div>
 
         );

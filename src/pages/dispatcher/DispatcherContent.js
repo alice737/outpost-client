@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom';
-
 
 
 class DispatcherContent extends Component {
@@ -14,20 +12,15 @@ class DispatcherContent extends Component {
                     <h1 id="nav-padd" className="h2">Aktualności</h1>
 
                 </div>
-
                 <h2> Dziś jest {data.toLocaleDateString()} r</h2>
                 <div>
-                <h4> Zadania: </h4>
-                <p>Rozdzielenie paczek. </p>
-                <p>Monitorowanie statusow. </p>
-                <p>Zarzadzanie kurierami. </p>
-                <p>Tworzenie planu.</p>
-                <p>Zmiana regionu kuriera wedlug rozłożeenia paczek.</p>
+                    <h4> Zadania: </h4>
+                    <p>Rozdzielenie paczek. </p>
+                    <p>Monitorowanie statusow. </p>
+                    <p>Zarzadzanie kurierami. </p>
+                    <p>Tworzenie planu.</p>
+                    <p>Zmiana regionu kuriera wedlug rozłożeenia paczek.</p>
                 </div>
-
-
-
-
             </main>
         );
 

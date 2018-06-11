@@ -1,7 +1,17 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component} from 'react';
+import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
 
 class Footer extends Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.context.router.history.push('/track')
+  }
   render() {
     return (
       <div>
@@ -18,16 +28,14 @@ class Footer extends Component {
                   <p>
                     <a href="/login">WYŚLIJ PACZKĘ</a>
                   </p>
-                  <p>
-                    <a >PUNKT OBSŁUGI PACZEK</a>
-                  </p>
+                 
                 </div>
                 <div className="col-sm-3">
                   <p>
-                    <Link to="/track">ŚLEDŹ PACZKĘ</Link>
+                     <a>ŚLEDŹ PACZKĘ</a> 
                   </p>
                   <p>
-                    <Link to="/complaint">REKLAMACJA</Link>
+                    {/* <Link to="/complaint">REKLAMACJA</Link> */}
                   </p>
                 </div>
                 <div className="col-sm-3">
@@ -148,5 +156,8 @@ class Footer extends Component {
       </div>
     );
   }
+}
+Footer.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 export default Footer;

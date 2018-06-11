@@ -54,9 +54,10 @@ float: left;
   
   .draggable {
     width: 150px;
-    height: 50px;
+    height: 80px;
     background-color: #91a3c1;
     margin: 5px ;
     float: left;
     line-height: 5em;
+    font-size: 12px;
   }

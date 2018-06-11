@@ -4,6 +4,11 @@ import AdminLeftNav from './AdminLeftNav';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
+
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
 
 
 
@@ -27,13 +32,32 @@ class Administrators extends Component {
 
     }
 
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_ADMIN') {
+                return role;
+            } else {
+                return !token && token.length > 10;
 
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
     render() {
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
 
 
             <div>
-                <div className="container-fluid" id="container-wi">
+                 {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <AdminLeftNav />
@@ -69,13 +93,12 @@ class Administrators extends Component {
                                         {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
                                     </tbody>
                                 </table>
-                                <Link className="nav-link" id="item-nav" to="/addemployee">
-                                    <span class="hint--right" aria-label="Dodaj nowego Administratora!"><i class="fa fa-plus-circle fa-3x red-text" aria-hidden="true"></i></span>
-                                </Link>
+                                
                             </div>
                         </main>
                     </div>
-                </div>
+                </div>):
+                  (<Redirect to={{ pathname: '/login' }} />)}
             </div>
 
 

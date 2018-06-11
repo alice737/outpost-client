@@ -3,7 +3,11 @@ import DispatcherNav from './DispatcherNav';
 import LeftNav from './LeftNav';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class Shifts extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +20,7 @@ class Shifts extends Component {
         this.handleChange=this.handleChange.bind(this);
     }
 handleClick(e){
-    console.log("był click")
+    // console.log("był click")
     if(this.state.show===false)
    { this.setState({show:true})}
    else
@@ -43,10 +47,30 @@ handleClick(e){
             this.setState({ id: e.target.value });
             console.log(this.state.id)
         }}
-    render() {
-        return (
-            <div>
-                <div className="container-fluid" id="container-wi">
+        isAuthenticated() {
+            const token = localStorage.getItem('token');
+            //  let role=decode(token).role;
+            if (token && token.length > 10) {
+                let role = decode(token).roles;
+                console.log(role)
+                if (role === 'ROLE_DISPATCHER') {
+                    return role;
+                } else {
+                    return !token && token.length > 10;
+    
+                }
+    
+            } else {
+                return token && token.length > 10;
+            }
+    
+        }
+        render() {
+            const isArleadyAuthenticated = this.isAuthenticated();
+            return (
+                <div>
+                    {(isArleadyAuthenticated === 'ROLE_DISPATCHER') ?
+                    (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <LeftNav />
@@ -72,15 +96,13 @@ handleClick(e){
                                             <td>{item.id}</td>
                                             <td>{item.name}</td>
                                             <td>{this.fun(item.shiftStatus[0].timestamp)}</td> 
-                                                <td>{item.shiftStatus[0].status}</td>
+                                                <td>{item.shiftStatus[item.shiftStatus.length-1].status}</td>
                                                 <td>{item.parcels.length}</td>
                                                 <td><Link to={`/courierInShift/${item.id}`}>
-                                                <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-x red-text" aria-hidden="true"></i></span>
-                                                </Link></td>
-                                                
+                                                <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
+                                                </Link></td>            
                                             </tr>
                                         ))}
-
                                         {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
                                     </tbody>
                                 </table>
@@ -88,7 +110,8 @@ handleClick(e){
 <Answer res={this.state.show}/>
                         </main>
                     </div>
-                </div>
+                </div>):
+                (<Redirect to={{ pathname: '/login' }} />)}
             </div>
 
         );

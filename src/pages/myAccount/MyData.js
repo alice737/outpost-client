@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DispatcherNav from '../dispatcher/DispatcherNav';
-import AdminLeftNav from './AdminLeftNav';
+import MyAccountNav from './MyAccountNav';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Route, Redirect } from 'react-router'
@@ -8,17 +8,21 @@ import decode from 'jwt-decode';
 axios.defaults.headers.post['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = "application/json; charset=UTF-8";
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
-class User extends Component {
+class MyData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: [],
-            id: ""
+            user: {},
+            id: "",
+            wait: 'Czekamy'
+
         };
     }
 
     componentDidMount() {
-        let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.type;
+        const token = localStorage.getItem('token');
+         let id=decode(token).user_id;
+        let url = 'http://193.33.111.170:8080/user/'+id+'/details';
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -29,33 +33,16 @@ class User extends Component {
             }).catch((err) => console.log(err))
 
     }
-    handleSubmit(event) {
-        //on delete
-        event.preventDefault();
-        axios.post('http://193.33.111.170:8080/admin/deleteEmployee/', {
-
-            id: this.props.match.params.id,
-            type: this.props.match.params.type.substr(0, this.props.match.params.type.length - 1)
-        }).then(function (response) {
-            console.log("ok");
-
-        }).catch(function (error) {
-            alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
-            console.log(error);
-
-        });
-
-    }
 
 
 
     isAuthenticated() {
         const token = localStorage.getItem('token');
-        //  let role=decode(token).role;
+      // let role=decode(token).role;
         if (token && token.length > 10) {
             let role = decode(token).roles;
             console.log(role)
-            if (role === 'ROLE_ADMIN') {
+            if (role === 'ROLE_USER') {
                 return role;
             } else {
                 return !token && token.length > 10;
@@ -68,14 +55,15 @@ class User extends Component {
 
     }
     render() {
+        const u = this.state.user;
         const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-                {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
+                {(isArleadyAuthenticated === 'ROLE_USER') ?
                     (<div className="container-fluid" id="container-wi">
                         <div className="row">
                             <DispatcherNav />
-                            <AdminLeftNav />
+                            <MyAccountNav />
                             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                                     <h1 id="nav-padd" className="h2"></h1>
@@ -93,32 +81,31 @@ class User extends Component {
 
                                     <div class="card-body">
 
+                                        {u.name ?
+                                            (<div >
+                                                <h4 class="card-title">{this.state.user.name} {this.state.user.surname}</h4>
 
-                                        {this.state.user.filter(item => item.id == this.props.match.params.id).map((item, index) => (
-                                            <div key={index}>
-                                                <h4 class="card-title">{item.personalia.name} {item.personalia.surname}</h4>
+                                                <div>Telefon: {this.state.user.telNumber} </div>
+                                                <div>Ulica: {this.state.user.address.street} </div>
+                                                <div>Numer ulicy: {this.state.user.address.street_number} </div>
+                                                <div>Numer domu: {this.state.user.address.house_number} </div>
+                                                <div>Miasto: {this.state.user.address.city} </div>
+                                                <div>Kod pocztowy: {this.state.user.address.postal_code} </div>
+                                                {/* <div>
+                                                <Link to={`/editemployee/${this.props.match.params.type}/${item.id}`}>
+                                                <span class="hint--right" aria-label="Edytuj dane pracownika!"><i class="fa fa-edit fa-3x blue-text" aria-hidden="true"></i></span>
+                                                
+                                                </Link>
+                                             <Link to="/">
+                                       
+                                                <span class="hint--right" aria-label="Usuń tego pracownika z systmu!"><i class="fa fa-remove fa-3x blue-text" aria-hidden="true"></i></span>
+   
 
-                                                <div>Telefon: {item.personalia.telNumber} </div>
-                                                <div>Ulica: {item.personalia.address.street} </div>
-                                                <div>Numer ulicy: {item.personalia.address.street_number} </div>
-                                                <div>Numer domu: {item.personalia.address.house_number} </div>
-                                                <div>Miasto: {item.personalia.address.city} </div>
-                                                <div>Kod pocztowy: {item.personalia.address.postal_code} </div>
-                                                <div>
-                                                    <Link to={`/editemployee/${this.props.match.params.type}/${item.id}`}>
-                                                        <span class="hint--right" aria-label="Edytuj dane pracownika!"><i class="fa fa-edit fa-3x blue-text" aria-hidden="true"></i></span>
-                                                    </Link>
-                                                    <Link to="/">
-
-                                                        <span class="hint--right" aria-label="Usuń tego pracownika z systmu!"><i class="fa fa-remove fa-3x blue-text" aria-hidden="true"></i></span>
-
-
-                                                    </Link>
-
-                                                </div>
-                                            </div>
-                                        ))}
-
+                                            </Link>
+   
+                                            </div> */}
+                                            </div>) :
+                                            ('Wait...')}
 
                                     </div>
 
@@ -137,4 +124,4 @@ class User extends Component {
 
     }
 }
-export default User;
+export default MyData;

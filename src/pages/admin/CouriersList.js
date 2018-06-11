@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import DispatcherNav from '../dispatcher/DispatcherNav';
 import AdminLeftNav from './AdminLeftNav';
 import { Link } from 'react-router-dom';
-
-
 import axios from 'axios';
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+
 
 
 
@@ -28,13 +32,32 @@ class CouriersList extends Component {
 
     }
 
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_ADMIN') {
+                return role;
+            } else {
+                return !token && token.length > 10;
 
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
     render() {
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
 
 
             <div>
-                <div className="container-fluid" id="container-wi">
+                 {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <AdminLeftNav />
@@ -72,7 +95,8 @@ class CouriersList extends Component {
                         </div>
                         </main>
                     </div>
-                </div>
+                </div>):
+                   (<Redirect to={{ pathname: '/login' }} />)}
             </div>
 
 

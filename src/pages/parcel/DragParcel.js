@@ -4,39 +4,19 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import ParcelList from '../admin/ParcelList';
 class DragParcel extends Component {
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
-            couriers: [
-            ],
-            parcels: [
-                // { name: 'PACZKA 1', category: "wip", color: "yellow" },
-                // { name: 'PACZKA 2', category: "wip", color: "pink" },
-                // { name: 'PACZKA 3', category: "wip", color: "red" },
-                // { name: 'PACZKA 4', category: "wip", color: "green" },
-                // { name: 'PACZKA 5', category: "wip", color: "yellow" },
-                // { name: 'PACZKA 6', category: "wip", color: "pink" },
-                // { name: 'PACZKA 7', category: "wip", color: "red" },
-                // { name: 'PACZKA 8 ', category: "wip", color: "green" },
-                // { name: 'PACZKA 9', category: "wip", color: "yellow" },
-                // { name: 'PACZKA 10', category: "wip", color: "yellow" },
-                // { name: 'PACZKA 12', category: "wip", color: "pink" },
-                // { name: 'PACZKA 13', category: "wip", color: "red" },
-                // { name: 'PACZKA 14', category: "wip", color: "green" },
-                // { name: 'PACZKA 15', category: "wip", color: "yellow" },
-                // { name: 'PACZKA 16', category: "wip", color: "pink" },
-                // { name: 'PACZKA 17', category: "wip", color: "red" },
-                // { name: 'PACZKA 18 ', category: "wip", color: "green" },
-                // { name: 'PACZKA 19', category: "wip", color: "yellow" }
-            ],
-            // parcels:[
-            //      { id: 'PACZKA 1', carrier: "", color: "yellow" },
-            //      { id: 'PACZKA 2', carrier: "", color: "pink" },
-            //      { id: 'PACZKA 3', carrier: "", color: "red" },
-            // ]
-
+           // couriers: [],
+            parcels: [],
+            name: props.name,
+            // shifts: [],
+            id: "",
+            idShift: props.idShift
+           
         };
         this.fun = this.fun.bind(this);
+        // this.findID = this.findID.bind(this);
     }
     fun() {
         // var obj = Object.assign(this.state.parcelList, this.state.parcels);
@@ -44,7 +24,7 @@ class DragParcel extends Component {
         this.state.parcels.forEach(i => i.carrier = 'wip')
     }
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/getParcels')
+        axios.get('http://193.33.111.170:8080/dispatcher/getNotConnectedParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data
@@ -53,16 +33,25 @@ class DragParcel extends Component {
                // console.log(response);
             }).catch((err) => console.log(err))
 
-            axios.get('http://193.33.111.170:8080/admin/carriers')
-            .then(response => {
-                this.setState({
-                    couriers: response.data
-                });
+            // axios.get('http://193.33.111.170:8080/dispatcher/getAllShifts')
+            // .then(response => {
+            //     this.setState({
+            //         shifts: response.data
+            //     });
 
-                console.log(response);
-            }).catch((err) => console.log(err))
+            //     console.log(response);
+            // }).catch((err) => console.log(err))
 
     }
+    // findID(){
+    //     for (let i = 0; i < this.state.shifts.length; i++) {
+    //        if (this.state.shifts[i].name == this.state.name) {
+    //         this.setState({id: this.state.shifts[i].id})
+        
+    //        }
+               
+    //         }
+    // }
 
     onDragOver = (ev) => {
         ev.preventDefault();
@@ -76,7 +65,7 @@ class DragParcel extends Component {
         console.log(id)
         let tasks = this.state.parcels.filter((task) => {
             if (task.id == id) {
-                task.carrier = cat;  //w task carrrier zapisuje kategorie do ktorej nalezy bo paczki mają takie pole 
+                task.carrier = cat; 
                 
             }
             return task;
@@ -88,10 +77,6 @@ class DragParcel extends Component {
         })
     }
     render() {
-
-       // this.fun();
-     var tasks=[this.state.couriers.length];
-     //task each task 
      
     var tasks = {
 
@@ -99,7 +84,7 @@ class DragParcel extends Component {
         complete: [],
         middle: []
     }
-var testtask=this.state.couriers;
+
         this.state.parcels.forEach((t) => {
             if(t.carrier==null)
          { t.carrier="wip"
@@ -110,12 +95,12 @@ var testtask=this.state.couriers;
                     onDragStart={(e) => this.onDragStart(e, t.id)}
                     draggable
                     className="draggable" style={{ backgroundColor: t.color }}
-                >{t.id}</div> );
+                >{t.id}{''} {t.waybill.recipient.address.street} {t.waybill.recipient.address.street_number} { t.waybill.recipient.address.postal_code} </div> );
             
         });
         return (<div className="container-drag">
 
-            <h1 className="header">Przyporzadkuj paczki do kurierow</h1>
+            <h1 className="header">Przyporzadkuj paczki do zmiany</h1>
 
             <div className="wip"
                 onDragOver={(e) => this.onDragOver(e)}
@@ -127,19 +112,13 @@ var testtask=this.state.couriers;
             </div>
             <div className="wip"
                 onDragOver={(e) => this.onDragOver(e)}
-                onDrop={(e) => this.onDrop(e, "middle")}
-            >
-                <span className="task-header">KURIER</span>
-                {tasks.middle}
-            </div>
-            {/* <div className="wip"
-                onDragOver={(e) => this.onDragOver(e)}
                 onDrop={(e) => this.onDrop(e, "complete")}
             >
-                <span className="task-header">KURIER </span>
+                <span className="task-header">ZMIANA{this.props.name}</span>
                 {tasks.complete}
-            </div> */}
-            <Link to="/dispatcher"> <input type="submit" className="btn btn-primary" value="Zapisz zmiany" /></Link>
+            </div>
+
+            <Answer props={this.state.parcels} id={this.props.idShift} />
         </div>);
     }
 
@@ -147,3 +126,91 @@ var testtask=this.state.couriers;
 
 }
 export default DragParcel;
+
+
+function Answer(props) {
+    const res = props;
+    const id=props.id;
+    console.log("id w kompoennen Answer"+id)
+    console.log(props.props.length)
+
+    //console.log(props.props[0].id)
+    const tab = [];
+    if (props.props.length > 0) {
+        for (let i = 0; i < props.props.length; i++) {
+            if (props.props[i].carrier == "complete") {
+                tab.push(props.props[i].id)
+                console.log("Id " + props.props[i].id)
+            }
+
+        }
+    }
+console.log(tab)
+    return <AnswerPositive tablica={tab} id={id}/>;
+
+}
+
+export class AnswerPositive extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {
+            idShift: '',
+            couriers: [
+            ],
+            tab: props.tablica,
+            id: props.id
+
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    getProps() {
+
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+        fetch('http://193.33.111.170:8080/dispatcher/addParcelToShift', {
+            method: 'POST',
+            body: JSON.stringify({
+                idShift: this.props.id,
+                idParcels: this.props.tablica
+
+
+            })
+            ,
+            headers: {
+                'Accept': 'application/json',
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(function (response) {
+            if (!response.ok) {
+                alert('Sprawdź czy dane są poprawne')
+                throw Error(response.statusText);
+                console.log(response.statusText);
+
+            }
+            return response;
+        }).then(function (response) {
+            console.log(response)
+            console.log("ok");
+            alert('Paczki przydzielone do zmiany ')
+
+
+        }).catch(function (error) {
+
+            console.log(error);
+
+        });
+
+
+    }
+    render() {
+        return (
+            <div className="table-responsive">
+   
+                <input id="complete" type="submit" value="Zapisz" className="btn btn-primary" onClick={this.handleSubmit} />
+            </div>
+
+        );
+    }
+}

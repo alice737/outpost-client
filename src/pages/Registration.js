@@ -4,7 +4,10 @@ import React, { Component } from 'react'
 import NavbarDetail from './NavbarDetail'
 import Footer from './Footer'
 //import '../pagestyle/login.css'
-
+import axios from 'axios'
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class Registration extends Component {
     constructor(props) {
         super(props);
@@ -21,8 +24,7 @@ class Registration extends Component {
             city: '',
             postal_code: '',
 
-            password1: '',
-            password2: ''
+         
 
         };
         this.handleChange = this.handleChange.bind(this);
@@ -30,11 +32,7 @@ class Registration extends Component {
         this.handleSubmitRegister = this.handleSubmitRegister.bind(this);
     }
     handleChange(e) {
-        if (e.target.id === 'emailLogin') {
-            this.setState({ emailLogin: e.target.value });
-        } else if (e.target.id === 'passwordLogin') {
-            this.setState({ passwordLogin: e.target.value });
-        } else if (e.target.id === 'name') {
+       if (e.target.id === 'name') {
             this.setState({ name: e.target.value });
             console.log(this.state.name);
         } else if (e.target.id === 'surname') {
@@ -53,57 +51,43 @@ class Registration extends Component {
             this.setState({ city: e.target.value });
         } else if (e.target.id === 'postal_code') {
             this.setState({ postal_code: e.target.value });
-        } else if (e.target.id === 'password1') {
-            this.setState({ password1: e.target.value });
-        } else if (e.target.id === 'password2') {
-            this.setState({ password2: e.target.value });
-        }
+        } 
     }
 
     
 
     handleSubmitRegister(event) {
-        alert('A name was submitted: ' + this.state.name);
+    
         event.preventDefault();
-        fetch('https://jsonplaceholder.typicode.com/posts/', {
-            method: 'POST',
-            //  mode: 'no-cors', // no-cors
-            body: JSON.stringify({
-                name: this.state.name,
-                surname: this.state.surname,
-                emailRegistration: this.emailRegistration,
-                telNumber: this.state.telNumber,
-                street: this.state.street,
-                street_number: this.state.street_number,
-                house_number: this.state.street_number,
-                city: this.state.city,
-                postal_code: this.state.postal_code,
-                password1: this.state.password1,
-                password2: this.state.password2
-            })
-            ,
-            headers: {
-                'Accept': 'application/json',
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        .then(function(response) {
-            if (!response.ok) {
-                alert('Wpisany format danych jest niepoprawny.')
-                throw Error(response.statusText);
-                console.log(response.statusText);
-               
-            }
-            return response;
-        }).then(function(response) {
-            console.log("ok");
-            alert('Zarejestrowany ')
-            
-        }).catch(function(error) {
+        axios.post('http://193.33.111.170:8080/guest/signUp', {
+   
+            name: this.state.name,
+            surname: this.state.surname,
+            email: this.state.emailRegistration,
+            telNumber: this.state.telNumber,
+            street: this.state.street,
+            street_number: this.state.street_number,
+            house_number: this.state.street_number,
+            city: this.state.city,
+            postal_code: this.state.postal_code
+           
         
+        }).then(function (response) {
+            // this.setState();
+            // this.forceUpdate();
+            console.log("ok");
+            alert('Zarejestrowany, domyślny login to Imie+Nazwisko, domyślne hasło ImieNazwisko')
+
+            ///this.setState({ isLoggedIn: "true"});
+            //  console.log(this.isLoggedIn)
+            // <Redirect push to='/admin'/>;
+
+        }).catch(function (error) {
+            alert('Sprawdź czy dane są poprawne, sproboj jeszcze raz')
             console.log(error);
-            
+
         });
+
     }
 
 
@@ -154,14 +138,7 @@ class Registration extends Component {
                                     <label >Kod pocztowy</label>
                                     <input type="text" className="form-control" id="postal_code" placeholder="Kod pocztowy" onChange={this.handleChange} required />
                                 </div>
-                                <div className="form-group">
-                                    <label >Hasło</label>
-                                    <input type="password" suggested="new-password" className="form-control" id="password1" placeholder="Hasło" onChange={this.handleChange} required />
-                                </div>
-                                <div className="form-group">
-                                    <label >Powtorz Hasło</label>
-                                    <input type="password" suggested="new-password" className="form-control" id="password2" placeholder="Powtorz hasło" onChange={this.handleChange} required />
-                                </div>
+                           
                                 <input type="submit" className="btn btn-primary" value="Prześlij" />
                             </form>
                         </div>

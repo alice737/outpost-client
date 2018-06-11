@@ -3,7 +3,11 @@ import DispatcherNav from '../dispatcher/DispatcherNav';
 import AdminLeftNav from './AdminLeftNav';
 import Admin from './Admin';
 import { Route, Redirect } from 'react-router'
-
+import decode from 'jwt-decode';
+import axios from 'axios'
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class AddEmployee extends Component {
     constructor(props) {
         super(props);
@@ -37,9 +41,7 @@ class AddEmployee extends Component {
             this.setState({ type: e.target.value });
         } else if (e.target.id === 'dispatcher') {
             this.setState({ type: e.target.value });
-        } else if (e.target.id === 'admin') {
-            this.setState({ type: e.target.value });
-        } else if (e.target.id === 'telNumber') {
+        }  else if (e.target.id === 'telNumber') {
             this.setState({ telNumber: e.target.value });
         } else if (e.target.id === 'street') {
             this.setState({ street: e.target.value });
@@ -59,9 +61,8 @@ class AddEmployee extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://193.33.111.170:8080/admin/addEmployee', {
-            method: 'POST',
-            body: JSON.stringify({
+        axios.post('http://193.33.111.170:8080/admin/addEmployee', {
+      
                 type: this.state.type,
                 name: this.state.name,
                 surname: this.state.surname,
@@ -72,40 +73,41 @@ class AddEmployee extends Component {
                 house_number: this.state.street_number,
                 city: this.state.city,
                 postal_code: this.state.postal_code
-            })
-            ,
-            headers: {
-                'Accept': 'application/json',
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        }).then(function (response) {
-            if (!response.ok) {
-                alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
-                throw Error(response.statusText);
-                console.log(response.statusText);
-
-            }
-            return response;
+    
         }).then(function (response) {
             console.log("ok");
             alert('Nowy pracownik dodany do bazy')
-            ///this.setState({ isLoggedIn: "true"});
-            //  console.log(this.isLoggedIn)
-            // <Redirect push to='/admin'/>;
-
         }).catch(function (error) {
-
+            alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
             console.log(error);
 
         });
 
     }
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_ADMIN') {
+                return role;
+            } else {
+                return !token && token.length > 10;
 
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
     render() {
-
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-                <div className="container-fluid" id="container-wi">
+                {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <AdminLeftNav />
@@ -159,9 +161,7 @@ class AddEmployee extends Component {
                                     <div className="form-check">
                                         <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "dispatcher"} id="dispatcher" value="dispatcher" /> Dyspozytor </label>
                                     </div>
-                                    <div className="form-check">
-                                        <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.type === "admin"} id="admin" value="admin" /> Administrator </label>
-                                    </div>
+                                   
                                     <div className="text-center mt-4">
                                         <input className="btn btn-primary my-3" type="submit" value="Prześlij" >
                                         </input>
@@ -174,11 +174,14 @@ class AddEmployee extends Component {
 
                         </main>
                     </div>
-                </div>
+                </div>):
+                (<Redirect to={{ pathname: '/login' }} />)}
             </div>
         );
 
     }
 }
+
+
 
 export default AddEmployee;

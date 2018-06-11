@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Drag.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import DragParcel from './DragParcel'
 
 class CouriersToShift extends Component {
     constructor(props) {
@@ -45,9 +46,11 @@ class CouriersToShift extends Component {
 
     findID(){
         for (let i = 0; i < this.state.shifts.length; i++) {
+
+            console.log("name  "+this.state.name)
            if (this.state.shifts[i].name == this.state.name) {
             this.setState({id: this.state.shifts[i].id})
-        
+        console.log("ID zmiany"+this.state.id)
            }
                
             }
@@ -98,12 +101,12 @@ class CouriersToShift extends Component {
                     onDragStart={(e) => this.onDragStart(e, t.id)}
                     draggable
                     className="draggable" style={{ backgroundColor: t.color }}
-                >{t.id} {t.personalia.name} {t.personalia.surname}</div>);
+                >{t.id}  {t.personalia.surname}</div>);
 
         });
         return (<div className="container-drag">
 
-            <h1 className="header">Przeciągnij i upuśc wybranych kurierow do zmiany </h1>
+            <h1 className="header">Przeciągnij i upuśc wybranego kuriera do zmiany !! </h1>
 
             <div className="wip"
                 onDragOver={(e) =>{this.onDragOver(e)
@@ -137,7 +140,7 @@ export default CouriersToShift;
 function Answer(props) {
     const res = props;
     const id=props.id;
-    //console.log("id w kompoennen Answer"+id)
+   console.log("id w kompoennen Answer id zmiany" + id)
     //console.log(props.props.length)
 
     // console.log(props.props[0].id)
@@ -151,7 +154,7 @@ function Answer(props) {
 
         }
     }
-//console.log(tab)
+console.log(tab)
     return <AnswerPositive tablica={tab} id={id}/>;
 
 }
@@ -160,11 +163,12 @@ export class AnswerPositive extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            idShift: 66,
+            idShift: '',
             couriers: [
             ],
             tab: props.tablica,
-            id: props.id
+            id: props.id,
+            res: ''
 
         };
 
@@ -175,6 +179,7 @@ export class AnswerPositive extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
+        this.setState({ res: '1'});
         fetch('http://193.33.111.170:8080/dispatcher/connectCarrierWithShifts', {
             method: 'POST',
             body: JSON.stringify({
@@ -213,10 +218,30 @@ export class AnswerPositive extends React.Component {
     render() {
         return (
             <div className="table-responsive">
-               
+           
                 <input id="complete" type="submit" value="Zapisz" className="btn btn-primary" onClick={this.handleSubmit} />
+                <AnswerRenderParcel res={this.state.res} name={this.state.shiftname} idShift={this.props.id} />
             </div>
 
         );
     }
+}
+function AnswerRenderParcel(props) {
+    const res= props.res;
+    const name=props.name;
+    const idShift=props.idShift;
+
+
+    if (!props.res) {
+        return null;
+      }
+      
+    if (res==='1') {
+      return <DragParcel name={name} idShift={idShift} />;
+    }
+    else if(res==='err')
+    {
+    return null;
+}
+ 
 }

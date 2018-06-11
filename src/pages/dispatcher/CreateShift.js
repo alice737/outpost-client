@@ -6,8 +6,13 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import ChooseCourier from './ChooseCourier'
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
 import CouriersToShift from '../parcel/CouriersToShift'
-
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class CreateShift extends Component {
     constructor(props) {
         super(props)
@@ -31,30 +36,18 @@ class CreateShift extends Component {
         this.setState({ res: '1'});
         event.preventDefault();
         let url = 'http://193.33.111.170:8080/dispatcher/createShift';
-        fetch(url, {
-            method: 'POST',
-            // mode: 'no-cors', // no-cors
-            body: JSON.stringify({
+        axios.post(url, {
+           
         name: this.state.shiftname
-            })
-            ,
-            headers: {
-                'Accept': 'application/json',
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        }).then(function (response) {
-            if (!response.ok) {
-                alert('Sprawdź czy dane są poprawne.')
-                throw Error(response.statusText);
-                console.log(response.statusText);
-            }
-            return response;
+          
+  
         }).then(function (response) {
             console.log("ok");
             alert('Zmiana stworzona ')
+            // this.context.router.push("/")
          
         }).catch(function (error) {
-
+            alert('Sprawdź czy dane są poprawne.')
             console.log(error);
 
         });
@@ -62,11 +55,30 @@ class CreateShift extends Component {
 
     }
    
-    render() {
+    isAuthenticated() {
+        const token = localStorage.getItem('token');
+        //  let role=decode(token).role;
+        if (token && token.length > 10) {
+            let role = decode(token).roles;
+            console.log(role)
+            if (role === 'ROLE_DISPATCHER') {
+                return role;
+            } else {
+                return !token && token.length > 10;
 
+            }
+
+        } else {
+            return token && token.length > 10;
+        }
+
+    }
+    render() {
+        const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-                <div className="container-fluid" id="container-wi">
+                {(isArleadyAuthenticated === 'ROLE_DISPATCHER') ?
+                (<div className="container-fluid" id="container-wi">
                     <div className="row">
                         <DispatcherNav />
                         <LeftNav />
@@ -85,7 +97,8 @@ class CreateShift extends Component {
                             <Answer res={this.state.res} name={this.state.shiftname}  />
                         </main>
                     </div>
-                </div>
+                </div>):
+                  (<Redirect to={{ pathname: '/login' }} />)}
             </div>
 
         );
@@ -95,6 +108,7 @@ export default CreateShift;
 function Answer(props) {
     const res= props.res;
     const name=props.name;
+    console.log("nazwa"+name)
 
     if (!props.res) {
         return null;

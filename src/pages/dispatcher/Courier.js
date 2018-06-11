@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-
+import { Route, Redirect } from 'react-router'
+import decode from 'jwt-decode';
 import axios from 'axios';
-
+axios.defaults.headers.post['Accept'] = 'application/json';
+axios.defaults.headers.post['Content-Type'] = "application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 
 class Courier extends Component {
@@ -38,12 +41,7 @@ class Courier extends Component {
               <th>Imie</th>
               <th>Nazwisko</th>
               <th>Telefon</th>
-              <th>Ulica</th>
-              <th>Numer ulicy</th>
-              <th>Numer domu</th>
-              <th>Miasto</th>
-              <th>Kod pocztowy</th>
-
+              
             </tr>
           </thead>
           <tbody>
@@ -52,11 +50,6 @@ class Courier extends Component {
                 <td> {item.personalia.name}</td>
                 <td> {item.personalia.surname}</td>
                 <td> {item.personalia.telNumber}</td>
-                <td> {item.personalia.address.street}</td>
-                <td> {item.personalia.address.street_number}</td>
-                <td> {item.personalia.address.house_number}</td>
-                <td> {item.personalia.address.city}</td>
-                <td> {item.personalia.address.postal_code}</td>
 
               </tr>
             ))}

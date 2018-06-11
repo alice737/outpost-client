@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import axios from 'axios'
 
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 class Complaint extends Component {
     render() {
@@ -14,10 +18,7 @@ class Complaint extends Component {
                         Reklamacja
                     </h2>
 
-
                     <form>
-
-
                         <label >Nazwa zgłaszającego</label>
                         <input type="text" id="ContactName" className="form-control" />
 

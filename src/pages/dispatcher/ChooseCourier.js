@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import axios from 'axios';
-
+axios.defaults.headers.post['Accept'] = 'application/json';
+axios.defaults.headers.post['Content-Type'] = "application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 
 class Courier extends Component {
@@ -15,9 +17,9 @@ class Courier extends Component {
     }
     handleClick() {
         this.setState(prevState => ({
-          isToggleOn: !prevState.isToggleOn
+            isToggleOn: !prevState.isToggleOn
         }));
-      }
+    }
 
     componentDidMount() {
         axios.get('http://193.33.111.170:8080/admin/carriers')
@@ -54,10 +56,10 @@ class Courier extends Component {
                             <tr key={index}>
                                 <td> {item.personalia.name}</td>
                                 <td> {item.personalia.surname}</td>
-                              
+
                                 <td>  <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? 'TAK' : 'NIE'}
-      </button>            </td>
+                                    {this.state.isToggleOn ? 'TAK' : 'NIE'}
+                                </button>            </td>
                             </tr>
                         ))}
 

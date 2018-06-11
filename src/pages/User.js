@@ -3,7 +3,9 @@ import DispatcherNav from '../dispatcher/DispatcherNav';
 import AdminLeftNav from './AdminLeftNav';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+axios.defaults.headers.post['Accept'] ='application/json';
+axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 class User extends Component {
     constructor(props) {
         super(props);
