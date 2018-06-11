@@ -30,19 +30,19 @@ class CarrierLeftNav extends Component {
                 Moje wszystkie zmiany
                 </Link>
             </li>
-    
-            <li className="nav-item">
-              <Link className="nav-link" id="item-nav" to="/inprogressshifts">
-                <span data-feather="file"></span>
-                Moje zmiany - W trakcie 
-                </Link>
-            </li>
             <li className="nav-item">
               <Link className="nav-link" id="item-nav" to="/shcreated">
                 <span data-feather="file"></span>
                 Moje zmiany - Utworzone
                 </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" id="item-nav" to="/inprogressshifts">
+                <span data-feather="file"></span>
+                Moje zmiany - W trakcie 
+                </Link>
+            </li>
+       
             <li className="nav-item">
               <Link className="nav-link" id="item-nav" to="/doneshifts">
                 <span data-feather="file"></span>

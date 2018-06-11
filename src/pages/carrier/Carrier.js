@@ -36,7 +36,7 @@ class Carrier extends Component {
                             <CarrierLeftNav />
                             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                                    <h1 id="nav-padd" className="h2">Aktualności</h1>
+                                    <h1 id="nav-padd" className="h2">Jesteś zalogowany jako </h1>
                                 </div>
                                 <h2> Dziś jest {data.toLocaleDateString()} r</h2>
                             </main>

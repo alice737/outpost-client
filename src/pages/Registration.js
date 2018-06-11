@@ -28,7 +28,6 @@ class Registration extends Component {
 
         };
         this.handleChange = this.handleChange.bind(this);
-    
         this.handleSubmitRegister = this.handleSubmitRegister.bind(this);
     }
     handleChange(e) {
@@ -112,7 +111,7 @@ class Registration extends Component {
                                 </div>
                                 <div className="form-group">
                                     <label >Email</label>
-                                    <input type="email" className="form-control" id="emilRegistration" placeholder="Email" onChange={this.handleChange} required />
+                                    <input type="email" className="form-control" id="emailRegistration" placeholder="Email" onChange={this.handleChange} required />
                                 </div>
                                 <div className="form-group">
                                     <label >Telefon</label>

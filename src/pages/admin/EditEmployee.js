@@ -14,7 +14,6 @@ class EditEmployee extends Component {
         this.state = {
             user: [],
             id: "",
-        
             name: '',
             surname: '',
             telNumber: '',
@@ -45,7 +44,6 @@ class EditEmployee extends Component {
 
     }
     handleSubmit(event) {
-        //on update 
         event.preventDefault();
         let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.id+ '/editEmployee';
         axios.post(url, {

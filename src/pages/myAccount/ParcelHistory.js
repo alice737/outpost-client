@@ -23,8 +23,8 @@ class ParcelList extends Component {
 
     componentDidMount() {
         const token = localStorage.getItem('token');
-        let id=decode(token).user_id;
-        axios.get('http://193.33.111.170:8080/user/'+id+'/myParcels')
+        let id = decode(token).user_id;
+        axios.get('http://193.33.111.170:8080/user/' + id + '/myParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data
@@ -37,7 +37,7 @@ class ParcelList extends Component {
 
     isAuthenticated() {
         const token = localStorage.getItem('token');
-      let role=decode(token).role;
+        let role = decode(token).role;
         if (token && token.length > 10) {
             let role = decode(token).roles;
             console.log(role)
@@ -90,28 +90,27 @@ class ParcelList extends Component {
                                     <table className="table table-striped table-sm">
                                         <thead>
                                             <tr>
-
+                                                <th>Numer paczki</th>
                                                 <th>Imie Odbiorcy</th>
                                                 <th>Nazwisko Odbiorcy</th>
-                                                <th>Status</th>                                           
+                                                <th>Status</th>
                                                 <th>Drukuj list przewozowy</th>
                                                 <th>Więcej</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {this.state.parcels.map((item, index) => (
                                                 <tr key={index}>
-
+                                                    <td> {item.id}</td>
                                                     <td> {item.waybill.recipient.name}</td>
                                                     <td> {item.waybill.recipient.surname}</td>
-                                                    <td> {this.alert(item.status[item.status.length-1].status)} </td>
+                                                    <td> {this.alert(item.status[item.status.length - 1].status)} </td>
                                                     <td><Link to={`/printwaybill/${item.id}`}>
-                                                     <span class="hint--right" aria-label="Drukuj!"><i className="fa fa-file-pdf-o fa-3x red-text" aria-hidden="true"></i></span>
-                                                     </Link></td>
-                                                     <td><Link to={`/parceldetails/${item.id}`}>
-                                                     <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
-                                                     </Link></td>
+                                                        <span class="hint--right" aria-label="Drukuj!"><i className="fa fa-file-pdf-o fa-3x red-text" aria-hidden="true"></i></span>
+                                                    </Link></td>
+                                                    <td><Link to={`/parceldetails/${item.id}`}>
+                                                        <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
+                                                    </Link></td>
 
                                                 </tr>
                                             ))}

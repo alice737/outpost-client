@@ -66,7 +66,7 @@ class ParcelList extends Component {
                                     <table className="table table-striped table-sm">
                                         <thead>
                                             <tr>
-                                                <th>Nadawca</th>
+                                                
                                                 <th>Imie Odbiorcy</th>
                                                 <th>Nazwisko Odbiorcy</th>
                                                 <th>Telefon Odbiorcy</th>

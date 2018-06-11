@@ -54,13 +54,10 @@ class ChangePassword extends Component {
                 return role;
             } else {
                 return !token && token.length > 10;
-
             }
-
         } else {
             return token && token.length > 10;
         }
-
     }
     handleChange(e) {
         if (e.target.id === 'password1') {
@@ -77,7 +74,6 @@ class ChangePassword extends Component {
         const isArleadyAuthenticated = this.isAuthenticated();
         return (
             <div>
-
                 {(isArleadyAuthenticated === 'ROLE_USER') ?
                     (<div className="container-fluid" id="container-wi">
                         <div className="row">
@@ -86,25 +82,18 @@ class ChangePassword extends Component {
                             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                                     <h1 id="nav-padd" className="h2">Zmień hasło </h1>
-
                                 </div>
-
                                 <form className="form-signin" style={formStyle} onSubmit={this.handleSubmit}>
-
-
-
                                     <div className="form-group">
-                                        <label >Nowe hasło</label>
+                                        <label >Login</label>
                                         <input type="text" className="form-control" id="password1" placeholder="Login" onChange={this.handleChange} required />
                                     </div>
                                     <div className="form-group">
-                                        <label >Powtorz nowe hasło</label>
+                                        <label >Nowe hasło</label>
                                         <input type="text" className="form-control" id="password2" placeholder="Nowe hasło" onChange={this.handleChange} required />
                                     </div>
-
                                     <input type="submit" className="btn btn-primary" value="Zapisz" />
                                 </form>
-
                             </main>
                         </div>
                     </div>) :

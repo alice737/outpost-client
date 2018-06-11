@@ -18,8 +18,7 @@ class DispatcherContent extends Component {
                     <p>Rozdzielenie paczek. </p>
                     <p>Monitorowanie statusow. </p>
                     <p>Zarzadzanie kurierami. </p>
-                    <p>Tworzenie planu.</p>
-                    <p>Zmiana regionu kuriera wedlug rozłożeenia paczek.</p>
+                    <p>Tworzenie planu.</p>  
                 </div>
             </main>
         );

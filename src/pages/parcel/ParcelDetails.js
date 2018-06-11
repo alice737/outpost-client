@@ -16,8 +16,6 @@ class ParcelDetails extends Component {
           
         };
     }
-
- 
     componentDidMount() {
         axios.get('http://193.33.111.170:8080/admin/getParcels')
         .then(response => {
@@ -62,6 +60,7 @@ class ParcelDetails extends Component {
                                        
                             <div key={index} class="card" style={styl}>
                                 <ul class="list-group list-group-flush" style={toLeft} >
+                                <li class="list-group-item"><div style={toLeft}>Id</div><div style={toRight}>{item.id} </div> </li>
                                     <li class="list-group-item"><div style={toLeft}>Imię odbiorcy</div><div style={toRight}>{item.waybill.recipient.name} </div> </li>
                                     <li class="list-group-item"><div style={toLeft}>Nazwisko odbiorcy </div><div style={toRight}>{item.waybill.recipient.surname} </div> </li>
                                     <li class="list-group-item"><div style={toLeft}>Email</div><div style={toRight}>{item.waybill.recipient.email} </div> </li>
@@ -72,6 +71,7 @@ class ParcelDetails extends Component {
                                     <li class="list-group-item"><div style={toLeft}>Kod pocztowy</div><div style={toRight}>{item.waybill.recipient.address.postal_code} </div> </li>
                                     <li class="list-group-item"><div style={toLeft}>Waga</div><div style={toRight}>{item.weight} </div> </li>
                                     <li class="list-group-item"><div style={toLeft}>Gabaryt</div><div style={toRight}>{item.gauge} </div> </li> 
+                                    <li class="list-group-item"><div style={toLeft}>Status</div><div style={toRight}>{item.status[item.status.length - 1].status} </div> </li> 
                                 </ul>
                             </div>))}
 

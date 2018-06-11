@@ -8,6 +8,7 @@ import decode from 'jwt-decode';
 axios.defaults.headers.post['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = "application/json; charset=UTF-8";
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+
 class MyData extends Component {
     constructor(props) {
         super(props);
@@ -33,8 +34,6 @@ class MyData extends Component {
             }).catch((err) => console.log(err))
 
     }
-
-
 
     isAuthenticated() {
         const token = localStorage.getItem('token');

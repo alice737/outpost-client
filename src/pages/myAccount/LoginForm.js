@@ -45,55 +45,36 @@ class LoginForm extends Component {
         axios.post('http://193.33.111.170:8080/guest/login', {
             login: this.state.emailLogin,
             pass: this.state.passwordLogin
-
-
         }).then((response) => {
-            token = response.data;
 
+            token = response.data;
             localStorage.setItem('token', token);
             console.log(decode(token));
             this.props.onSuccessfulLogin();
-            //this.setState({token: token});
-            // console.log(this.state.token)
-            //this.handleSubmit()
             console.log("ok");
-            // alert('Nowy pracownik dodany do bazy')
+
         }).catch(function (error) {
             alert('Sprawdź czy dane są poprawne, nowy pracownik nie został dodany do bazy sproboj jeszcze raz')
-            console.log(error);
-
+          console.log(error);
         });
-
-
-
     }
-
-
-
     render() {
-
         return (
-
-
-
-
             <div className="col">
 
                 (<form className="form-signin" id="container100" onSubmit={this.handleSubmitLogin}>
                     <h1> Logowanie</h1>
                     <p>Wpisz poprawny login i hasło by zalogowac sie do stystemu.</p>
                     <div className="form-group">
-                        <label >Email</label>
-                        <input type="text" className="form-control" id="emailLogin" placeholder="Wpisz email" onChange={this.handleChange} required />
+                        <label >Login</label>
+                        <input type="text" className="form-control" id="emailLogin" placeholder="Wpisz login" onChange={this.handleChange} required />
                     </div>
                     <div className="form-group">
                         <label >Hasło</label>
                         <input type="password" suggested="current-password" className="form-control" id="passwordLogin" placeholder="Hasło" onChange={this.handleChange} required />
                     </div>
                     <input type="submit" className="btn btn-primary" value="Prześlij" />
-                    <div>
-                        <a href="">Nie pamiętasz hasła? Kliknij aby przypomniec hasło.</a>
-                    </div>
+                    
                 </form>
             </div>
 

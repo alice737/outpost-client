@@ -76,6 +76,7 @@ class  ParcelsInShift extends Component {
           <thead>
             <tr>
             {/* <th>Nadawca</th> */}
+            <th>Numer Paczki</th>
               <th>Imie Odbiorcy</th>
               <th>Nazwisko Odbiorcy</th>
               <th>Telefon Odbiorcy</th>
@@ -90,6 +91,7 @@ class  ParcelsInShift extends Component {
              {this.state.parcels.map((item, index) => (
               <tr key={index}>
               {/* <td> {item.waybill.sender} </td> */} 
+              <td> {item.id}</td>
               <td> {item.waybill.recipient.name}</td>
                   <td> {item.waybill.recipient.surname}</td>
                 <td> {item.waybill.recipient.telNumber}</td>

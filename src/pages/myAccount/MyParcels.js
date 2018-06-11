@@ -70,8 +70,7 @@ class MyParcels extends Component {
                     this.setState({ res: '1' });
                 }
 
-            }).catch((err) => {
-                //   
+            }).catch((err) => {  
                 this.setState({ res: 'err' });
 
 
@@ -91,7 +90,6 @@ class MyParcels extends Component {
                             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                                     <h1 id="nav-padd" className="h2">Moje przesyłki</h1>
-
                                 </div>
                                 <div className="container">
                                     <h2 className="font-weight-bold text-center">Śledzenie przesyłki</h2>
@@ -102,7 +100,6 @@ class MyParcels extends Component {
                                                 <input className="form-control" id="packNumber" placeholder="Wpisz numer paczki" onChange={this.handleChange} required />
                                             </div>
                                             <button type="submit" className="btn btn-primary">Prześlij</button>
-
                                         </form>
                                         <Answer res={this.state.res} packNumber={this.state.packNumber} />
                                     </div>

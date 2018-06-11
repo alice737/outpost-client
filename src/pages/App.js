@@ -46,6 +46,7 @@ import ParcelDetails from './parcel/ParcelDetails';
 import DoneShifts from './carrier/DoneShifts';
 import InProgressShifts from './carrier/InProgressShifts';
 import CreatedShifts from './carrier/CreatedShifts';
+
 class App extends Component {
     render() {
         return (
@@ -93,6 +94,7 @@ class App extends Component {
                    <Route path="/doneshifts" component={DoneShifts}/>
                    <Route path="/shcreated" component={CreatedShifts}/>
                    <Route path="/inprogressshifts" component={InProgressShifts}/>
+                   
                 </div>
             </Router>
         );
