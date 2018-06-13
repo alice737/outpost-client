@@ -34,7 +34,7 @@ class LoginForm extends Component {
         this.props.onSuccessfulLogin();
     }
     getProfile() {
-        // Using jwt-decode npm package to decode the token
+   
         return decode(this.getToken());
     }
 

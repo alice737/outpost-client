@@ -53,8 +53,6 @@ class Courier extends Component {
 
               </tr>
             ))}
-
-            {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
           </tbody>
         </table>
       </div>

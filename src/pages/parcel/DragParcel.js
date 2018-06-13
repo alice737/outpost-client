@@ -16,11 +16,10 @@ class DragParcel extends Component {
            
         };
         this.fun = this.fun.bind(this);
-        // this.findID = this.findID.bind(this);
+
     }
     fun() {
-        // var obj = Object.assign(this.state.parcelList, this.state.parcels);
-        // console.log(obj); // { a: 1, b: 2, c: 3 }
+  
         this.state.parcels.forEach(i => i.carrier = 'wip')
     }
     componentDidMount() {
@@ -32,26 +31,8 @@ class DragParcel extends Component {
 
                // console.log(response);
             }).catch((err) => console.log(err))
-
-            // axios.get('http://localhost:8080/dispatcher/getAllShifts')
-            // .then(response => {
-            //     this.setState({
-            //         shifts: response.data
-            //     });
-
-            //     console.log(response);
-            // }).catch((err) => console.log(err))
-
     }
-    // findID(){
-    //     for (let i = 0; i < this.state.shifts.length; i++) {
-    //        if (this.state.shifts[i].name == this.state.name) {
-    //         this.setState({id: this.state.shifts[i].id})
-        
-    //        }
-               
-    //         }
-    // }
+
 
     onDragOver = (ev) => {
         ev.preventDefault();

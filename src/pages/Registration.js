@@ -72,8 +72,7 @@ class Registration extends Component {
            
         
         }).then(function (response) {
-            // this.setState();
-            // this.forceUpdate();
+          
             console.log("ok");
             alert('Zarejestrowany, domyślny login to Imie+Nazwisko, domyślne hasło ImieNazwisko')
 

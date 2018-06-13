@@ -32,7 +32,7 @@ class CreateShift extends Component {
         
     }
     handleSubmit(event) {
-        //on update 
+
         this.setState({ res: '1'});
         event.preventDefault();
         let url = 'http://localhost:8080/dispatcher/createShift';
@@ -44,7 +44,7 @@ class CreateShift extends Component {
         }).then(function (response) {
             console.log("ok");
             alert('Zmiana stworzona ')
-            // this.context.router.push("/")
+
          
         }).catch(function (error) {
             alert('Sprawdź czy dane są poprawne.')
@@ -57,7 +57,7 @@ class CreateShift extends Component {
    
     isAuthenticated() {
         const token = localStorage.getItem('token');
-        //  let role=decode(token).role;
+
         if (token && token.length > 10) {
             let role = decode(token).roles;
             console.log(role)

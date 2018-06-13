@@ -43,12 +43,9 @@ class Courier extends Component {
                 <table className="table table-striped table-sm">
                     <thead>
                         <tr>
-
                             <th>Imie</th>
                             <th>Nazwisko</th>
                             <th>Czy dodac kuriera do wybranej zmiany ? </th>
-
-
                         </tr>
                     </thead>
                     <tbody>
@@ -62,8 +59,6 @@ class Courier extends Component {
                                 </button>            </td>
                             </tr>
                         ))}
-
-                        {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
                     </tbody>
                 </table>
             </div>

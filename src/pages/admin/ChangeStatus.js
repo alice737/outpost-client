@@ -41,7 +41,7 @@ class ChangeStatus extends Component {
             this.setState({ packStatus: e.target.value });
             console.log(e.target.value);
         }
-        //PREPARED, PICKED_UP, ON_WAY_TO_MAGAZINE, IN_MAGAZINE, ON_WAY_TO_RECEIVER, DELIVERED
+      
     }
 
 
@@ -114,18 +114,7 @@ class ChangeStatus extends Component {
                                         <form className="form-signin" onSubmit={this.handleSubmit}>
                                             <div className="form-group">
                                                 <input className="form-control" id="packNumber" placeholder="Wpisz numer paczki" onChange={this.handleChange} required />
-                                                {/* <div class="input-group mb-3">
-                                                <select value={this.state.value} onChange={this.handleChange}  id="select" class="custom-select" id="inputGroupSelect02">
 
-                                                    <option   id="PREPARED" value="PREPARED" >PREPARED</option>
-                                                    <option  id="PICKED_UP" value="PICKED_UP">PICKED_UP</option>
-                                                    <option  id="ON_WAY_TO_MAGAZINE" value="ON_WAY_TO_MAGAZINE">ON_WAY_TO_MAGAZINE</option>
-                                                    <option id="IN_MAGAZINE" value="IN_MAGAZINE">IN_MAGAZINE</option>
-                                                    <option   id="ON_WAY_TO_RECEIVER" value="ON_WAY_TO_RECEIVER">ON_WAY_TO_RECEIVER</option>
-                                                    <option  id="DELIVERED" value="DELIVERED">DELIVERED</option>
-                                                </select>
-
-                                            </div>*/}
                                                 <div className="form-check">
                                                     <label><input className="form-check-input" name="group20" type="radio" id="radio122" onChange={this.handleChange} checked={this.state.packStatus === "PREPARED"} id="PREPARED" value="PREPARED" />PREPARED </label>
                                                 </div>

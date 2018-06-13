@@ -6,10 +6,8 @@ import DispatcherNav from '../dispatcher/DispatcherNav';
 import CarrierLeftNav from './CarrierLeftNav';
 import Carrier from '../carrier/Carrier';
 import { Link } from 'react-router-dom';
-
 axios.defaults.headers.post['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = "application/json; charset=UTF-8";
-//axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 
 class DoneShifts extends Component {
@@ -24,7 +22,7 @@ class DoneShifts extends Component {
   componentDidMount() {
     const token = localStorage.getItem('token');
     let role = decode(token).user_id;
-   ///{idCarrier}/getMyShift/{status}"
+ 
     let url = 'http://localhost:8080/carrier/' + role + '/getMyShift/DONE';
     axios.get(url)
       .then(response => {
@@ -69,20 +67,15 @@ class DoneShifts extends Component {
               <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                   <h1 id="nav-padd" className="h2">Moje zmiany </h1>
-
                 </div>
-
                 <div className="table-responsive">
                   <table className="table table-striped table-sm">
                     <thead>
                       <tr>
-
                         <th>Id</th>
                         <th>Nazwa</th>
                         <th>Paczki ilośc</th>
                         <th>Paczki szczegoły</th>
-
-
                       </tr>
                     </thead>
                     <tbody>
@@ -97,8 +90,6 @@ class DoneShifts extends Component {
                                                 </Link></td> 
                         </tr>
                       ))}
-
-
                     </tbody>
                   </table>
                 </div>

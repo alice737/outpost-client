@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import DispatcherNav from '../dispatcher/DispatcherNav';
 import AdminLeftNav from './AdminLeftNav';
 import { Link } from 'react-router-dom';
-
 import axios from 'axios';
 import { Route, Redirect } from 'react-router'
 import decode from 'jwt-decode';
-
 axios.defaults.headers.post['Accept'] ='application/json';
 axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
 
@@ -48,13 +46,10 @@ class Administrators extends Component {
         } else {
             return token && token.length > 10;
         }
-
     }
     render() {
         const isArleadyAuthenticated = this.isAuthenticated();
         return (
-
-
             <div>
                  {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
                 (<div className="container-fluid" id="container-wi">
@@ -88,9 +83,7 @@ class Administrators extends Component {
                                                 <span class="hint--right" aria-label="Więcej!"><i class="fa fa-info fa-x red-text" aria-hidden="true"></i></span>
                                                 </Link></td>
                                             </tr>
-                                        ))}
-
-                                        {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
+                                        ))}                               
                                     </tbody>
                                 </table>
                                 

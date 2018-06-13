@@ -34,8 +34,7 @@ class Footer extends Component {
                   <p>
                      <a>ŚLEDŹ PACZKĘ</a> 
                   </p>
-                  <p>
-                    {/* <Link to="/complaint">REKLAMACJA</Link> */}
+                  <p>       
                   </p>
                 </div>
                 <div className="col-sm-3">

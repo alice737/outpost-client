@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import '../../pagestyle/dispatcher.css'
-
-
 class AdminLeftNav extends Component{
     render(){
         return(
-          
-            
-      
         <nav className="col-md-2  d-md-block bg-light sidebar" id="nav-padd">
           <div className="sidebar-sticky">
             <ul className="nav flex-column">
@@ -72,15 +67,10 @@ class AdminLeftNav extends Component{
                  Zmień status
                 </Link>
               </li>
-            
-            
-            
             </ul>
           </div>
-        
-
      </nav>
-    
+  
         );
         
     }

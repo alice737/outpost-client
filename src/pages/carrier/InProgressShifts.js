@@ -95,11 +95,8 @@ class InProgressShifts extends Component {
                           <td><Link to={`/parcelsInShift/${item.id}`}>
                                                 <span class="hint--right" aria-label="Paczki!"><i class="fa fa-info fa-2x red-text" aria-hidden="true"></i></span>
                                                 </Link></td> 
-
                         </tr>
                       ))}
-
-
                     </tbody>
                   </table>
                 </div>

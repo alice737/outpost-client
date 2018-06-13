@@ -87,10 +87,10 @@ class  ParcelsInShift extends Component {
             </tr>
           </thead>
           <tbody>
-          {/* {this.state.parcels.filter(item => item.id == this.props.match.params.id).map((item, index) => ( */}
+  
              {this.state.parcels.map((item, index) => (
               <tr key={index}>
-              {/* <td> {item.waybill.sender} </td> */} 
+  
               <td> {item.id}</td>
               <td> {item.waybill.recipient.name}</td>
                   <td> {item.waybill.recipient.surname}</td>

@@ -90,14 +90,10 @@ class SendParcel extends Component {
 
 
         }).then(function (response) {
-            // this.setState();
-            // this.forceUpdate();
+       
             console.log("ok");
             alert('Paczka dodana do bazy')
 
-            ///this.setState({ isLoggedIn: "true"});
-            //  console.log(this.isLoggedIn)
-            // <Redirect push to='/admin'/>;
 
         }).catch(function (error) {
             alert('Sprawdź czy dane są poprawne, sproboj jeszcze raz')

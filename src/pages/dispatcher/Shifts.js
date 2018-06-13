@@ -20,7 +20,7 @@ class Shifts extends Component {
         this.handleChange=this.handleChange.bind(this);
     }
 handleClick(e){
-    // console.log("był click")
+
     if(this.state.show===false)
    { this.setState({show:true})}
    else
@@ -49,7 +49,7 @@ handleClick(e){
         }}
         isAuthenticated() {
             const token = localStorage.getItem('token');
-            //  let role=decode(token).role;
+
             if (token && token.length > 10) {
                 let role = decode(token).roles;
                 console.log(role)
@@ -103,7 +103,7 @@ handleClick(e){
                                                 </Link></td>            
                                             </tr>
                                         ))}
-                                        {/* <div key={index}>Item {item.personalia.name} {item.surname}</div>; */}
+                                       
                                     </tbody>
                                 </table>
                             </div>

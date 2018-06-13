@@ -109,9 +109,6 @@ class Statistic extends Component {
 
 
     }
-
-
-
     isAuthenticated() {
         const token = localStorage.getItem('token');
         //  let role=decode(token).role;

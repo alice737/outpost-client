@@ -9,9 +9,6 @@ axios.defaults.headers.post['Accept'] ='application/json';
 axios.defaults.headers.post['Content-Type'] ="application/json; charset=UTF-8";
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
-
-
-
 class CouriersList extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +16,6 @@ class CouriersList extends Component {
             couriers: []
         };
     }
-
     componentDidMount() {
         axios.get('http://localhost:8080/admin/carriers')
             .then(response => {
@@ -31,7 +27,6 @@ class CouriersList extends Component {
             }).catch((err) => console.log(err))
 
     }
-
     isAuthenticated() {
         const token = localStorage.getItem('token');
         //  let role=decode(token).role;
@@ -42,9 +37,7 @@ class CouriersList extends Component {
                 return role;
             } else {
                 return !token && token.length > 10;
-
             }
-
         } else {
             return token && token.length > 10;
         }
@@ -53,8 +46,6 @@ class CouriersList extends Component {
     render() {
         const isArleadyAuthenticated = this.isAuthenticated();
         return (
-
-
             <div>
                  {(isArleadyAuthenticated === 'ROLE_ADMIN') ?
                 (<div className="container-fluid" id="container-wi">
