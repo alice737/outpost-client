@@ -35,7 +35,7 @@ class CreateShift extends Component {
         //on update 
         this.setState({ res: '1'});
         event.preventDefault();
-        let url = 'http://193.33.111.170:8080/dispatcher/createShift';
+        let url = 'http://localhost:8080/dispatcher/createShift';
         axios.post(url, {
            
         name: this.state.shiftname

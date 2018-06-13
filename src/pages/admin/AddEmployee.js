@@ -61,7 +61,7 @@ class AddEmployee extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/admin/addEmployee', {
+        axios.post('http://localhost:8080/admin/addEmployee', {
       
                 type: this.state.type,
                 name: this.state.name,

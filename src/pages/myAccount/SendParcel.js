@@ -74,7 +74,7 @@ class SendParcel extends Component {
         const token = localStorage.getItem('token');
         let id = decode(token).user_id;
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/user/addParcel', {
+        axios.post('http://localhost:8080/user/addParcel', {
             senderId: id,
             recipientName: this.state.recipientName,
             recipientSurname: this.state.recipientSurname,

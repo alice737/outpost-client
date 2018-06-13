@@ -12,7 +12,9 @@ class CouriersToShift extends Component {
             couriers: [],
             name: props.name,
             shifts: [],
-            id: ""
+            id: "",
+            shiftByName:{}
+            
 
         };
         this.fun = this.fun.bind(this);
@@ -23,7 +25,7 @@ class CouriersToShift extends Component {
         this.state.couriers.forEach(i => i.carrier = 'wip')
     }
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/carriers')
+        axios.get('http://localhost:8080/admin/carriers')
             .then(response => {
                 this.setState({
                     couriers: response.data
@@ -32,7 +34,7 @@ class CouriersToShift extends Component {
                 console.log(response);
             }).catch((err) => console.log(err))
             
-            axios.get('http://193.33.111.170:8080/dispatcher/getAllShifts')
+            axios.get('http://localhost:8080/dispatcher/getAllShifts')
             .then(response => {
                 this.setState({
                     shifts: response.data
@@ -40,8 +42,15 @@ class CouriersToShift extends Component {
 
                 console.log(response);
             }).catch((err) => console.log(err))
+let url='http://localhost:8080/dispatcher/getShiftId/moja123';
+            axios.get(url)
+            .then(response => {
+                this.setState({
+                    shiftByName:response.data
+                });
 
-
+                console.log(response);
+            }).catch((err) => console.log(err))
     }
 
     findID(){
@@ -180,7 +189,7 @@ export class AnswerPositive extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({ res: '1'});
-        fetch('http://193.33.111.170:8080/dispatcher/connectCarrierWithShifts', {
+        fetch('http://localhost:8080/dispatcher/connectCarrierWithShifts', {
             method: 'POST',
             body: JSON.stringify({
                 idShift: this.props.id,

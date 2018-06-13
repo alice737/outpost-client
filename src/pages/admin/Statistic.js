@@ -27,7 +27,7 @@ class Statistic extends Component {
 
 
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/getParcels')
+        axios.get('http://localhost:8080/admin/getParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data
@@ -37,7 +37,7 @@ class Statistic extends Component {
             }).catch((err) => console.log(err))
 
 
-        axios.get('http://193.33.111.170:8080/admin/all')
+        axios.get('http://localhost:8080/admin/all')
             .then(response => {
                 this.setState({
                     couriers: response.data.carriers,
@@ -49,7 +49,7 @@ class Statistic extends Component {
                 console.log(response);
             }).catch((err) => console.log(err))
        
-        axios.get('http://193.33.111.170:8080/dispatcher/getParcelsByStatus/PREPARED')
+        axios.get('http://localhost:8080/dispatcher/getParcelsByStatus/PREPARED')
             .then(response => {
                 this.setState({
                     prepared: response.data
@@ -59,7 +59,7 @@ class Statistic extends Component {
                 console.log(response);
             }).catch((err) => console.log(err))
 
-            axios.get('http://193.33.111.170:8080/dispatcher/getParcelsByStatus/PICKED_UP')
+            axios.get('http://localhost:8080/dispatcher/getParcelsByStatus/PICKED_UP')
             .then(response => {
                 this.setState({
                     picked_up: response.data
@@ -68,7 +68,7 @@ class Statistic extends Component {
 
                 console.log(response);
             }).catch((err) => console.log(err))
-            axios.get('http://193.33.111.170:8080/dispatcher/getParcelsByStatus/ON_WAY_TO_MAGAZINE')
+            axios.get('http://localhost:8080/dispatcher/getParcelsByStatus/ON_WAY_TO_MAGAZINE')
             .then(response => {
                 this.setState({
                     on_way_to_magazine: response.data
@@ -78,7 +78,7 @@ class Statistic extends Component {
                 console.log(response);
             }).catch((err) => console.log(err))
 
-            axios.get('http://193.33.111.170:8080/dispatcher/getParcelsByStatus/ON_WAY_TO_RECEIVER')
+            axios.get('http://localhost:8080/dispatcher/getParcelsByStatus/ON_WAY_TO_RECEIVER')
             .then(response => {
                 this.setState({
                     on_way_to_reciver: response.data
@@ -87,7 +87,7 @@ class Statistic extends Component {
 
                 console.log(response);
             }).catch((err) => console.log(err))
-            axios.get('http://193.33.111.170:8080/dispatcher/getParcelsByStatus/DELIVERED')
+            axios.get('http://localhost:8080/dispatcher/getParcelsByStatus/DELIVERED')
             .then(response => {
                 this.setState({
                     delivered: response.data
@@ -96,7 +96,7 @@ class Statistic extends Component {
 
                 console.log(response);
             }).catch((err) => console.log(err))
-            axios.get('http://193.33.111.170:8080/dispatcher/getParcelsByStatus/DELIVERED')
+            axios.get('http://localhost:8080/dispatcher/getParcelsByStatus/DELIVERED')
             .then(response => {
                 this.setState({
                     in_magazine: response.data

@@ -19,7 +19,7 @@ class CarriersInShift extends Component {
   }
 
   componentWillMount() {
-    let url = 'http://193.33.111.170:8080/dispatcher/' + this.props.match.params.id + '/getCarrierFromShift';
+    let url = 'http://localhost:8080/dispatcher/' + this.props.match.params.id + '/getCarrierFromShift';
 
 
     axios.get(url)

@@ -21,7 +21,7 @@ class Administrators extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/administrators')
+        axios.get('http://localhost:8080/admin/administrators')
             .then(response => {
                 this.setState({
                     administrators: response.data

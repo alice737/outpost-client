@@ -18,7 +18,7 @@ class Parcels extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/getParcels')
+        axios.get('http://localhost:8080/admin/getParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data

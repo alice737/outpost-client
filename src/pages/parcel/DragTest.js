@@ -23,7 +23,7 @@ class DragTest extends Component {
         this.state.parcels.forEach(i => i.carrier = 'wip')
     }
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/getParcels')
+        axios.get('http://localhost:8080/admin/getParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data
@@ -32,7 +32,7 @@ class DragTest extends Component {
                // console.log(response);
             }).catch((err) => console.log(err))
 
-            axios.get('http://193.33.111.170:8080/admin/carriers')
+            axios.get('http://localhost:8080/admin/carriers')
             .then(response => {
                 this.setState({
                     couriers: response.data

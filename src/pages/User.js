@@ -16,7 +16,7 @@ class User extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.type;
+        let url = 'http://localhost:8080/admin/' + this.props.match.params.type;
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -30,7 +30,7 @@ class User extends Component {
     handleSubmit(event) {
         //on delete
         event.preventDefault();
-        fetch('http://193.33.111.170:8080/admin/deleteEmployee/', {
+        fetch('http://localhost:8080/admin/deleteEmployee/', {
             method: 'DELETE',
             // mode: 'no-cors', // no-cors
             body: JSON.stringify({

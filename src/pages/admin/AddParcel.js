@@ -85,7 +85,7 @@ class AddParcel extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/admin/addParcel', {
+        axios.post('http://localhost:8080/admin/addParcel', {
          
                 recipientName: this.state.recipientName,
                 recipientSurname: this.state.recipientSurname,

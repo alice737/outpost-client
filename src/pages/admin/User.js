@@ -18,7 +18,7 @@ class User extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.type;
+        let url = 'http://localhost:8080/admin/' + this.props.match.params.type;
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -32,7 +32,7 @@ class User extends Component {
     handleSubmit(event) {
         //on delete
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/admin/deleteEmployee/', {
+        axios.post('http://localhost:8080/admin/deleteEmployee/', {
 
             id: this.props.match.params.id,
             type: this.props.match.params.type.substr(0, this.props.match.params.type.length - 1)

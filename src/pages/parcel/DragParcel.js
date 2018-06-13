@@ -24,7 +24,7 @@ class DragParcel extends Component {
         this.state.parcels.forEach(i => i.carrier = 'wip')
     }
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/dispatcher/getNotConnectedParcels')
+        axios.get('http://localhost:8080/dispatcher/getNotConnectedParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data
@@ -33,7 +33,7 @@ class DragParcel extends Component {
                // console.log(response);
             }).catch((err) => console.log(err))
 
-            // axios.get('http://193.33.111.170:8080/dispatcher/getAllShifts')
+            // axios.get('http://localhost:8080/dispatcher/getAllShifts')
             // .then(response => {
             //     this.setState({
             //         shifts: response.data
@@ -169,7 +169,7 @@ export class AnswerPositive extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://193.33.111.170:8080/dispatcher/addParcelToShift', {
+        fetch('http://localhost:8080/dispatcher/addParcelToShift', {
             method: 'POST',
             body: JSON.stringify({
                 idShift: this.props.id,

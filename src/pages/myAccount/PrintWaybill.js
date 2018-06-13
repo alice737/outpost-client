@@ -18,7 +18,7 @@ class PrintWaybill extends Component {
 
 
   componentDidMount() {
-    axios.get('http://193.33.111.170:8080/admin/getParcels')
+    axios.get('http://localhost:8080/admin/getParcels')
       .then(response => {
         this.setState({
           parcels: response.data
@@ -29,7 +29,7 @@ class PrintWaybill extends Component {
 
     const token = localStorage.getItem('token');
     let id = decode(token).user_id;
-    let url = 'http://193.33.111.170:8080/user/' + id + '/details';
+    let url = 'http://localhost:8080/user/' + id + '/details';
     axios.get(url)
       .then(response => {
         this.setState({

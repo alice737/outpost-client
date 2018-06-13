@@ -25,7 +25,7 @@ class DoneShifts extends Component {
     const token = localStorage.getItem('token');
     let role = decode(token).user_id;
    ///{idCarrier}/getMyShift/{status}"
-    let url = 'http://193.33.111.170:8080/carrier/' + role + '/getMyShift/DONE';
+    let url = 'http://localhost:8080/carrier/' + role + '/getMyShift/DONE';
     axios.get(url)
       .then(response => {
         this.setState({

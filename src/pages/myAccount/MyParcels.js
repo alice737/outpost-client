@@ -56,7 +56,7 @@ class MyParcels extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        let url = 'http://193.33.111.170:8080/guest/checkParcelStatus/' + this.state.packNumber
+        let url = 'http://localhost:8080/guest/checkParcelStatus/' + this.state.packNumber
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -134,7 +134,7 @@ export class AnswerPositive extends React.Component {
         // alert('A name was submitted: ' + this.state.packNumber);
 
 
-        let url = 'http://193.33.111.170:8080/guest/checkParcelStatus/' + this.state.packNumber
+        let url = 'http://localhost:8080/guest/checkParcelStatus/' + this.state.packNumber
         axios.get(url)
             .then(response => {
                 this.setState({

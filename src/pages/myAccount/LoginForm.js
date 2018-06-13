@@ -42,7 +42,7 @@ class LoginForm extends Component {
     handleSubmitLogin(event) {
         let token;
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/guest/login', {
+        axios.post('http://localhost:8080/guest/login', {
             login: this.state.emailLogin,
             pass: this.state.passwordLogin
         }).then((response) => {

@@ -49,7 +49,7 @@ class ChangeStatus extends Component {
         event.preventDefault();
         console.log(this.state.packNumber);
         console.log(this.state.packStatus)
-        axios.post('http://193.33.111.170:8080/admin/changeStatus', {
+        axios.post('http://localhost:8080/admin/changeStatus', {
 
 
             id: this.state.packNumber,

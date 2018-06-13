@@ -58,7 +58,7 @@ class Registration extends Component {
     handleSubmitRegister(event) {
     
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/guest/signUp', {
+        axios.post('http://localhost:8080/guest/signUp', {
    
             name: this.state.name,
             surname: this.state.surname,
@@ -66,7 +66,7 @@ class Registration extends Component {
             telNumber: this.state.telNumber,
             street: this.state.street,
             street_number: this.state.street_number,
-            house_number: this.state.street_number,
+            house_number: this.state.house_number,
             city: this.state.city,
             postal_code: this.state.postal_code
            

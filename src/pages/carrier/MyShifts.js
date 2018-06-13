@@ -25,7 +25,7 @@ class MyShifts extends Component {
     const token = localStorage.getItem('token');
     let id = decode(token).user_id;
    
-    let url = 'http://193.33.111.170:8080/carrier/' + id + '/getMyShift';
+    let url = 'http://localhost:8080/carrier/' + id + '/getMyShift';
     axios.get(url)
       .then(response => {
         this.setState({

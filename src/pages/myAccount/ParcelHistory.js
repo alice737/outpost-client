@@ -24,7 +24,7 @@ class ParcelList extends Component {
     componentDidMount() {
         const token = localStorage.getItem('token');
         let id = decode(token).user_id;
-        axios.get('http://193.33.111.170:8080/user/' + id + '/myParcels')
+        axios.get('http://localhost:8080/user/' + id + '/myParcels')
             .then(response => {
                 this.setState({
                     parcels: response.data

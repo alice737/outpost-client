@@ -35,7 +35,7 @@ class Dispatchers extends Component {
 
     }
     componentDidMount() {
-        axios.get('http://193.33.111.170:8080/admin/dispatchers')
+        axios.get('http://localhost:8080/admin/dispatchers')
             .then(response => {
                 this.setState({
                     dispatchers: response.data

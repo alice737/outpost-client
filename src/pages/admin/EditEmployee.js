@@ -32,7 +32,7 @@ class EditEmployee extends Component {
 
 
     componentDidMount() {
-        let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.type;
+        let url = 'http://localhost:8080/admin/' + this.props.match.params.type;
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -45,7 +45,7 @@ class EditEmployee extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        let url = 'http://193.33.111.170:8080/admin/' + this.props.match.params.id+ '/editEmployee';
+        let url = 'http://localhost:8080/admin/' + this.props.match.params.id+ '/editEmployee';
         axios.post(url, {
          
                     type: this.props.match.params.type.substr(0, this.props.match.params.type.length - 1),

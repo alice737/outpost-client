@@ -26,7 +26,7 @@ class ChangePassword extends Component {
         const token = localStorage.getItem('token');
         let id = decode(token).user_id;
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/user/changePassword', {
+        axios.post('http://localhost:8080/user/changePassword', {
 
           login: this.state.password1,
            pass: this.state.password2

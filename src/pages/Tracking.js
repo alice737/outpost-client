@@ -11,12 +11,8 @@ class Tracking extends Component {
         super();
         this.state = {
             packNumber: '',
-
             res: '',
-            track: [
-
-            ]
-
+            track: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -29,12 +25,11 @@ class Tracking extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        let url = 'http://193.33.111.170:8080/guest/checkParcelStatus/' + this.state.packNumber
+        let url = 'http://localhost:8080/guest/checkParcelStatus/' + this.state.packNumber
         axios.get(url)
             .then(response => {
                 this.setState({
                     track: response.data,
-
                 });
                 if (this.state.track.length === 0) {
                     this.setState({ res: 'err' });
@@ -42,12 +37,8 @@ class Tracking extends Component {
                 } else {
                     this.setState({ res: '1' });
                 }
-
-            }).catch((err) => {
-                //   
+            }).catch((err) => {  
                 this.setState({ res: 'err' });
-
-
             });
     }
 
@@ -107,7 +98,7 @@ export class AnswerPositive extends React.Component {
         // alert('A name was submitted: ' + this.state.packNumber);
 
 
-        let url = 'http://193.33.111.170:8080/guest/checkParcelStatus/' + this.state.packNumber
+        let url = 'http://localhost:8080/guest/checkParcelStatus/' + this.state.packNumber
         axios.get(url)
             .then(response => {
                 this.setState({

@@ -35,7 +35,7 @@ class EditAccount extends Component {
     componentWillMount() {
         const token = localStorage.getItem('token');
         let id=decode(token).user_id;
-        let url = 'http://193.33.111.170:8080/user/'+id+'/details';
+        let url = 'http://localhost:8080/user/'+id+'/details';
         axios.get(url)
             .then(response => {
                 this.setState({
@@ -51,7 +51,7 @@ class EditAccount extends Component {
         let id=decode(token).user_id;
     
         event.preventDefault();
-        axios.post('http://193.33.111.170:8080/user/' + id + '/editUser', {
+        axios.post('http://localhost:8080/user/' + id + '/editUser', {
 
 
             name: this.name.value,
